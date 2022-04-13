@@ -20,16 +20,16 @@ export function renderAside() {
 						`<li class="qualification__list-item"><span>${item.name}</span><span>${item.value}</span></li>`
 				)
 				.join(',')
-				.replace(',', '');
+				.replace(/,/g, '');
 		}
 
 		return arr
 			.map(
 				(item) =>
-					`<li class="qualification__list-gauge"><span>${item.name}</span><span class="gauge" data-value="${item.value}"><span class="gauge__track"></span></span></li>`
+					`<li class="qualification__list-gauge"><span>${item.name}</span><span class="gauge"><span class="gauge__track" data-value="${item.value}%"></span></span></li>`
 			)
 			.join(',')
-			.replace(',', '');
+			.replace(/,/g, '');
 	};
 
 	qualifications.forEach((qualification, index) => {
@@ -49,4 +49,34 @@ export function renderAside() {
 
 		asideContainer.insertAdjacentHTML('beforeend', qualificationEl);
 	});
+
+	console.log('--Render Qualifications List');
+}
+
+export function asideScrollEvents() {
+	const _animate = () => {
+		const gaugeItems = $.querySelectorAll('.gauge__track');
+
+		for (let i = 0; i < gaugeItems.length; i++) {
+			const gaugeItem = gaugeItems[i];
+			const gaugeBounds = gaugeItem.getBoundingClientRect();
+			const animatePercentage = gaugeItem.getAttribute('data-value');
+
+			if (gaugeBounds.y < window.innerHeight - 100) {
+				gaugeItem.classList.add('gauge--active');
+				gaugeItem.style.width = animatePercentage;
+			} else {
+				gaugeItem.style.width = '0%';
+				setTimeout(() => gaugeItem.classList.remove('gauge__track--active'), 200);
+			}
+		}
+	};
+
+	_animate();
+
+	window.addEventListener('scroll', (e) => {
+		_animate();
+	});
+
+	console.log('--Register Qualification Events');
 }

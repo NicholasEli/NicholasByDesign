@@ -433,12 +433,16 @@ aside .qualification__list-gauge .gauge {
   background-color: #e3e4e5;
 }
 aside .qualification__list-gauge .gauge__track {
-  width: 50%;
+  width: 0%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   background-color: #53819e;
+  transition: width 200ms ease-out;
+}
+aside .qualification__list-gauge .gauge__track--active {
+  transition: width 200ms ease-in;
 }
 
 footer {

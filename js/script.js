@@ -6,7 +6,7 @@ import {
 	trackScrollEvents,
 } from './timeline.js';
 
-import { renderAside } from './aside.js';
+import { renderAside, asideScrollEvents } from './aside.js';
 
 window.onload = function () {
 	console.log('--Javascript Loading');
@@ -19,5 +19,6 @@ window.onload = function () {
 
 	// Aside
 	renderAside();
+	asideScrollEvents();
 	console.log('--Javascript Loaded');
 };

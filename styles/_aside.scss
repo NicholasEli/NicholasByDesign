@@ -92,12 +92,17 @@ aside {
 					background-color: $gray;
 
 					&__track {
-						width: 50%;
+						width: 0%;
 						height: 100%;
 						position: absolute;
 						top: 0;
 						left: 0;
 						background-color: $blue;
+						transition: width 200ms ease-out;
+
+						&--active {
+							transition: width 200ms ease-in;
+						}
 					}
 				}
 			}

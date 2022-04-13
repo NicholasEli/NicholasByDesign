@@ -144,4 +144,6 @@ export function trackScrollEvents() {
 	window.addEventListener('scroll', (e) => {
 		_animate();
 	});
+
+	console.log('--Register Timeline Events');
 }
