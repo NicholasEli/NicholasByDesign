@@ -90,7 +90,8 @@ export function trackScrollEvents() {
 	const historyItems = $.querySelectorAll('.history__item');
 
 	const buffer = 200;
-	window.addEventListener('scroll', (e) => {
+
+	const _animate = () => {
 		// Animate track height
 		const gradientContainer = $.querySelector('.history__gradient');
 		const trackContainerBounds = trackContainer.getBoundingClientRect();
@@ -136,5 +137,11 @@ export function trackScrollEvents() {
 				item.classList.remove('history__item--active');
 			}
 		}
+	};
+
+	_animate();
+
+	window.addEventListener('scroll', (e) => {
+		_animate();
 	});
 }
