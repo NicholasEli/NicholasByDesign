@@ -15,12 +15,21 @@ export function renderAside() {
 	const _renderList = (arr) => {
 		if (typeof arr[0].value === 'string') {
 			return arr
-				.map((item) => `<li><span>${item.name}</span><span>${item.value}</span></li>`)
+				.map(
+					(item) =>
+						`<li class="qualification__list-item"><span>${item.name}</span><span>${item.value}</span></li>`
+				)
 				.join(',')
 				.replace(',', '');
 		}
 
-		return '';
+		return arr
+			.map(
+				(item) =>
+					`<li class="qualification__list-gauge"><span>${item.name}</span><span data-value="${item.value}"></span></li>`
+			)
+			.join(',')
+			.replace(',', '');
 	};
 
 	qualifications.forEach((qualification, index) => {

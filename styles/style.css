@@ -375,6 +375,10 @@ aside .qualification__title {
   margin-bottom: 8px;
   border-bottom: 1px dotted #53819e;
 }
+aside .qualification__title h4,
+aside .qualification__title p {
+  width: calc(50% - 8px);
+}
 aside .qualification__title h4 {
   color: #53819e;
   font-weight: bold;
@@ -405,19 +409,27 @@ aside .qualification__list li {
   line-height: 1.5;
 }
 aside .qualification__list li span {
-  width: 50%;
+  width: calc(50% - 8px);
   color: #000;
   font-weight: bold;
   letter-spacing: 1px;
 }
 aside .qualification__list li span + span {
+  margin-left: 16px;
+}
+aside .qualification__list-item span + span {
   font-weight: normal;
   text-align: right;
 }
 @media (min-width: 768px) {
-  aside .qualification__list li span + span {
+  aside .qualification__list-item span + span {
     text-align: left;
   }
+}
+aside .qualification__list-gauge span + span {
+  display: inline-block;
+  height: 16px;
+  background-color: #e3e4e5;
 }
 
 footer {

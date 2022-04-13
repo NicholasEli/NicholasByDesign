@@ -23,6 +23,11 @@ aside {
 			margin-bottom: $padding / 2;
 			border-bottom: 1px dotted $blue;
 
+			h4,
+			p {
+				width: calc(50% - #{$padding / 2});
+			}
+
 			h4 {
 				color: $blue;
 				font-weight: bold;
@@ -58,18 +63,32 @@ aside {
 				line-height: 1.5;
 
 				span {
-					width: 50%;
+					width: calc(50% - #{$padding / 2});
 					color: #000;
 					font-weight: bold;
 					letter-spacing: 1px;
 				}
 
 				span + span {
+					margin-left: $padding;
+				}
+			}
+
+			&-item {
+				span + span {
 					font-weight: normal;
 					text-align: right;
 					@media (min-width: #{$md}) {
 						text-align: left;
 					}
+				}
+			}
+
+			&-gauge {
+				span + span {
+					display: inline-block;
+					height: $padding;
+					background-color: $gray;
 				}
 			}
 		}
