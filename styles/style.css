@@ -360,8 +360,13 @@ aside {
     min-height: calc(100vh - 50px);
   }
 }
+@media (min-width: 768px) {
+  aside .container {
+    padding-top: 250px;
+  }
+}
 aside .qualification {
-  margin-bottom: 32px;
+  margin-bottom: 64px;
 }
 aside .qualification__title {
   width: 100%;
@@ -395,7 +400,7 @@ aside .qualification__list li {
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   border-bottom: 1px dotted #53819e;
   line-height: 1.5;
 }
@@ -407,6 +412,12 @@ aside .qualification__list li span {
 }
 aside .qualification__list li span + span {
   font-weight: normal;
+  text-align: right;
+}
+@media (min-width: 768px) {
+  aside .qualification__list li span + span {
+    text-align: left;
+  }
 }
 
 footer {
