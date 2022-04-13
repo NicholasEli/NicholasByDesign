@@ -130,9 +130,9 @@ table {
 }
 
 :root {
-  --light-blue: $light-blue;
-  --dark-blue: $dark-blue;
-  --light-green: $green;
+  --lightblue: $lightblue;
+  --blue: $blue;
+  --gray: $gray;
 }
 
 body {
