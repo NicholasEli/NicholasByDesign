@@ -129,10 +129,20 @@ table {
   border-spacing: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --lightblue: $lightblue;
   --blue: $blue;
   --gray: $gray;
+}
+
+header {
+  width: 100vw;
+  height: 50px;
+  background-color: #53819e;
 }
 
 body {
