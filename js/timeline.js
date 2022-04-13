@@ -80,3 +80,24 @@ export function renderPoints() {
 	}
 	console.log('--Render Timeline Points');
 }
+
+export function renderFlags() {
+	const trackContainer = $.querySelector('.track');
+	const trackContainerBounds = trackContainer.getBoundingClientRect();
+	const historyItemHeaders = $.querySelectorAll('.history__item h3');
+
+	for (let i = 0; i < history.length; i++) {
+		const flagContainerEl = $.createElement('div');
+		flagContainerEl.classList.add('flag');
+		flagContainerEl.classList.add('flag-' + i);
+		flagContainerEl.style.top = historyItemHeaders[i].offsetTop + 'px';
+
+		const flagTextEl = $.createElement('p');
+		flagTextEl.classList.add('flag__text');
+
+		flagContainerEl.append(flagTextEl);
+
+		trackContainer.append(flagContainerEl);
+	}
+	console.log('--Render Timeline Flags');
+}

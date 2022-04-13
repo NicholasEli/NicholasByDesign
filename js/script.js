@@ -1,8 +1,10 @@
-import { renderTimeline, renderTrack, renderPoints } from './timeline.js';
+import { renderTimeline, renderTrack, renderPoints, renderFlags } from './timeline.js';
 
 window.onload = function () {
-	console.log('--Javascript Loaded');
+	console.log('--Javascript Loading');
 	renderTimeline();
 	renderTrack();
 	renderPoints();
+	renderFlags();
+	console.log('--Javascript Loaded');
 };
