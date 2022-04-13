@@ -49,7 +49,7 @@ export function renderTrack() {
 			trackSlide.style.height = '100%';
 		}
 
-		if (trackContainerBounds.y > 200) {
+		if (trackContainerBounds.y > buffer) {
 			trackSlide.style.height = '0%';
 		}
 	});
