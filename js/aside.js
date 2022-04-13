@@ -26,7 +26,7 @@ export function renderAside() {
 		return arr
 			.map(
 				(item) =>
-					`<li class="qualification__list-gauge"><span>${item.name}</span><span data-value="${item.value}"></span></li>`
+					`<li class="qualification__list-gauge"><span>${item.name}</span><span class="gauge" data-value="${item.value}"><span class="gauge__track"></span></span></li>`
 			)
 			.join(',')
 			.replace(',', '');

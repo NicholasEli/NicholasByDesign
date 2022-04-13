@@ -426,10 +426,19 @@ aside .qualification__list-item span + span {
     text-align: left;
   }
 }
-aside .qualification__list-gauge span + span {
+aside .qualification__list-gauge .gauge {
+  position: relative;
   display: inline-block;
   height: 16px;
   background-color: #e3e4e5;
+}
+aside .qualification__list-gauge .gauge__track {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #53819e;
 }
 
 footer {

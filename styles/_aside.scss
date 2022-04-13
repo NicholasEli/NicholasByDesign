@@ -85,10 +85,20 @@ aside {
 			}
 
 			&-gauge {
-				span + span {
+				.gauge {
+					position: relative;
 					display: inline-block;
 					height: $padding;
 					background-color: $gray;
+
+					&__track {
+						width: 50%;
+						height: 100%;
+						position: absolute;
+						top: 0;
+						left: 0;
+						background-color: $blue;
+					}
 				}
 			}
 		}
