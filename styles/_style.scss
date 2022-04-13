@@ -1,8 +1,17 @@
 @import '_reset.scss';
 @import '_variables.scss';
 @import '_header.scss';
+@import '_main.scss';
+@import '_aside.scss';
 @import '_footer.scss';
 
 body {
+	display: flex;
+	flex-direction: column;
 	overflow-x: hidden;
+
+	@media (min-width: #{$md}) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 }

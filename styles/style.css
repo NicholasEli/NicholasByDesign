@@ -145,14 +145,43 @@ header {
   background-color: #53819e;
 }
 
-header {
+main {
+  width: 100vw;
+}
+@media (min-width: 768px) {
+  main {
+    width: calc(100% - 180px);
+    min-height: calc(100vh - 50px);
+  }
+}
+
+aside {
+  width: 100vw;
+  background-color: #edf1f5;
+}
+@media (min-width: 768px) {
+  aside {
+    width: 180px;
+    min-height: calc(100vh - 50px);
+  }
+}
+
+footer {
   width: 100vw;
   height: 50px;
   background-color: #53819e;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
+}
+@media (min-width: 768px) {
+  body {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
