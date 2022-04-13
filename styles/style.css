@@ -288,6 +288,11 @@ main .timeline .flag {
   z-index: 2;
   transition: opacity 400ms, right 200ms ease-out;
 }
+@media (max-width: 1090px) {
+  main .timeline .flag {
+    opacity: 0 !important;
+  }
+}
 main .timeline .flag::before {
   content: "";
   position: absolute;
@@ -348,6 +353,9 @@ aside {
 footer {
   width: 100vw;
   height: 50px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
   background-color: #53819e;
 }
 

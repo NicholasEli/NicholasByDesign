@@ -139,6 +139,10 @@ main {
 			z-index: 2;
 			transition: opacity 400ms, right 200ms ease-out;
 
+			@media (max-width: 1090px) {
+				opacity: 0 !important;
+			}
+
 			&::before {
 				content: '';
 				position: absolute;
