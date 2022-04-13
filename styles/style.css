@@ -229,15 +229,15 @@ main .headline__title h1,
 main .headline__title p {
   letter-spacing: 1px;
 }
-main .timeline__history-item {
+main .timeline .history__item {
   margin-bottom: 32px;
 }
-main .timeline__history-item h3 {
+main .timeline .history__item h3 {
   margin-bottom: 16px;
   font-weight: bold;
   font-size: 18px;
 }
-main .timeline__history-item p {
+main .timeline .history__item p {
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 1px;

@@ -72,19 +72,21 @@ main {
 	}
 
 	.timeline {
-		&__history-item {
-			margin-bottom: $padding * 2;
+		.history {
+			&__item {
+				margin-bottom: $padding * 2;
 
-			h3 {
-				margin-bottom: $padding;
-				font-weight: bold;
-				font-size: 18px;
-			}
+				h3 {
+					margin-bottom: $padding;
+					font-weight: bold;
+					font-size: 18px;
+				}
 
-			p {
-				font-size: 14px;
-				line-height: 1.5;
-				letter-spacing: 1px;
+				p {
+					font-size: 14px;
+					line-height: 1.5;
+					letter-spacing: 1px;
+				}
 			}
 		}
 	}
