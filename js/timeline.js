@@ -92,6 +92,7 @@ export function trackScrollEvents() {
 	const buffer = 200;
 	window.addEventListener('scroll', (e) => {
 		// Animate track height
+		const gradientContainer = $.querySelector('.history__gradient');
 		const trackContainerBounds = trackContainer.getBoundingClientRect();
 		const trackSlideBounds = trackSlide.getBoundingClientRect();
 		const footerBounds = trackContainer.getBoundingClientRect();
@@ -107,6 +108,12 @@ export function trackScrollEvents() {
 			(trackContainerBounds.y <= buffer && heightCalc >= 100)
 		) {
 			trackSlide.style.height = '100%';
+		}
+
+		if (footerBounds.bottom < window.innerHeight) {
+			gradientContainer.classList.add('history__gradient--inactive');
+		} else {
+			gradientContainer.classList.remove('history__gradient--inactive');
 		}
 
 		if (trackContainerBounds.y > buffer) {
