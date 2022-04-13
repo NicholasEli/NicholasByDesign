@@ -145,6 +145,12 @@ header {
   background-color: #53819e;
 }
 
+header {
+  width: 100vw;
+  height: 50px;
+  background-color: #53819e;
+}
+
 body {
   overflow-x: hidden;
 }
