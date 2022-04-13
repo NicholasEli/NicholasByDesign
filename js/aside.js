@@ -12,8 +12,19 @@ export function renderAside() {
 			.replace(',', '');
 	};
 
+	const _renderList = (arr) => {
+		if (typeof arr[0].value === 'string') {
+			return arr
+				.map((item) => `<li><span>${item.name}</span><span>${item.value}</span></li>`)
+				.join(',')
+				.replace(',', '');
+		}
+
+		return '';
+	};
+
 	qualifications.forEach((qualification, index) => {
-		const { title, scale } = qualification;
+		const { title, scale, items } = qualification;
 		//const qualificationEl = $.createElement('section');
 		const qualificationEl = `
 			<section class="qualification qualification-${title.toLowerCase()}">
@@ -21,6 +32,9 @@ export function renderAside() {
 					<h4>${title}</h4>
 					${scale ? `<p>${_renderScale(scale)}</p>` : ''}
 				</div>
+				<ul class="qualification__list">
+					${_renderList(items)}
+				</ul>
 			</section>
 		`;
 

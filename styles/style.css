@@ -367,6 +367,7 @@ aside .qualification__title {
   width: 100%;
   display: flex;
   align-items: flex-end;
+  margin-bottom: 8px;
   border-bottom: 1px dotted #53819e;
 }
 aside .qualification__title h4 {
@@ -389,6 +390,23 @@ aside .qualification__title p {
 }
 aside .qualification__title p span + span {
   margin-left: auto;
+}
+aside .qualification__list li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  border-bottom: 1px dotted #53819e;
+  line-height: 1.5;
+}
+aside .qualification__list li span {
+  width: 50%;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+aside .qualification__list li span + span {
+  font-weight: normal;
 }
 
 footer {
