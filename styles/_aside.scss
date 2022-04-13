@@ -10,14 +10,35 @@ aside {
 	.qualification {
 		margin-bottom: $padding * 2;
 
-		h4 {
-			color: $blue;
-			font-weight: bold;
-			font-size: 20px;
-			letter-spacing: 1px;
-			line-height: 1.5;
-			text-transform: uppercase;
+		&__title {
+			width: 100%;
+			display: flex;
+			align-items: flex-end;
 			border-bottom: 1px dotted $blue;
+
+			h4 {
+				color: $blue;
+				font-weight: bold;
+				font-size: 20px;
+				letter-spacing: 1px;
+				line-height: 1.5;
+				text-transform: uppercase;
+			}
+
+			p {
+				display: flex;
+				flex: 1;
+				margin-left: $padding;
+				color: $blue;
+				font-size: 10px;
+				letter-spacing: 1px;
+				line-height: 2.5;
+				text-transform: lowercase;
+
+				span + span {
+					margin-left: auto;
+				}
+			}
 		}
 	}
 }
