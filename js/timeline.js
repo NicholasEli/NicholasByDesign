@@ -4,7 +4,6 @@ const $ = document;
 const historySelector = '.timeline .container .history';
 
 export function renderTimeline() {
-	console.log('--Render Timeline History');
 	const containerEl = $.querySelector(historySelector);
 
 	history.forEach((item, index) => {
@@ -19,6 +18,7 @@ export function renderTimeline() {
 
 		containerEl.insertAdjacentHTML('beforeend', markup);
 	});
+	console.log('--Render Timeline History');
 }
 
 export function renderTrack() {
@@ -39,13 +39,17 @@ export function renderTrack() {
 	window.addEventListener('scroll', (e) => {
 		const trackContainerBounds = trackContainer.getBoundingClientRect();
 		const footerBounds = trackContainer.getBoundingClientRect();
+		const heightCalc =
+			((window.scrollY - trackContainerBounds.y) / trackContainerBounds.height) * 100 + '%';
 
 		if (trackContainerBounds.y <= buffer) {
-			trackSlide.style.height =
-				((window.scrollY - trackContainerBounds.y) / trackContainerBounds.height) * 100 + '%';
+			trackSlide.style.height = heightCalc;
 		}
 
-		if (trackContainerBounds.y <= buffer && footerBounds.bottom < window.innerHeight) {
+		if (
+			(trackContainerBounds.y <= buffer && footerBounds.bottom < window.innerHeight) ||
+			(trackContainerBounds.y <= buffer && heightCalc >= 100)
+		) {
 			trackSlide.style.height = '100%';
 		}
 
@@ -53,4 +57,25 @@ export function renderTrack() {
 			trackSlide.style.height = '0%';
 		}
 	});
+	console.log('--Render Timeline Track');
+}
+
+export function renderPoints() {
+	const trackContainer = $.querySelector('.track');
+	const trackContainerBounds = trackContainer.getBoundingClientRect();
+	const historyItemHeaders = $.querySelectorAll('.history__item h3');
+
+	for (let i = 0; i < history.length; i++) {
+		const pointContainerEl = $.createElement('div');
+		pointContainerEl.classList.add('point');
+		pointContainerEl.style.top = historyItemHeaders[i].offsetTop + 'px';
+
+		const pointCenterEl = $.createElement('div');
+		pointCenterEl.classList.add('point__center');
+
+		pointContainerEl.append(pointCenterEl);
+
+		trackContainer.append(pointContainerEl);
+	}
+	console.log('--Render Timeline Points');
 }

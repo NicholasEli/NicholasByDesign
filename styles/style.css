@@ -246,10 +246,10 @@ main .timeline .track {
   position: absolute;
   top: 0;
   left: 0;
-  overflow-y: hidden;
 }
 main .timeline .track__slide {
   width: 100%;
+  min-height: 32px;
   position: absolute;
   top: 0;
   left: 0;
@@ -273,6 +273,17 @@ main .timeline .history__item p {
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 1px;
+}
+main .timeline .point {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: calc(-50% - 5px);
+  border: 2px solid #fff;
+  border-radius: 100%;
+  background-color: #53819e;
 }
 
 aside {

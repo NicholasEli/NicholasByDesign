@@ -84,15 +84,15 @@ main {
 		}
 
 		.track {
-			width: $padding / 2;
+			width: $track;
 			height: 100%;
 			position: absolute;
 			top: 0;
 			left: 0;
-			overflow-y: hidden;
 
 			&__slide {
 				width: 100%;
+				min-height: $padding * 2;
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -121,6 +121,18 @@ main {
 					letter-spacing: 1px;
 				}
 			}
+		}
+
+		.point {
+			width: $track + 10;
+			height: $track + 10;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: calc(-50% - 5px);
+			border: 2px solid #fff;
+			border-radius: 100%;
+			background-color: $blue;
 		}
 	}
 }

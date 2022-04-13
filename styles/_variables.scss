@@ -8,10 +8,11 @@ $md: 768px;
 $lg: 960px;
 $xl: 1200px;
 
+$padding: 16px;
+
 $header: 50px;
 $aside: 180px;
-
-$padding: 16px;
+$track: $padding / 2;
 
 :root {
 	--lightblue: $lightblue;
