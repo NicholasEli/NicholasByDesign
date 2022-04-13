@@ -101,6 +101,23 @@ main {
 			}
 		}
 
+		.point {
+			width: $track + 10;
+			height: $track + 10;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: calc(-50% - 5px);
+			border: 2px solid #fff;
+			border-radius: 100%;
+			background-color: $blue;
+			opacity: 0;
+
+			&.point-0 {
+				opacity: 1;
+			}
+		}
+
 		.history {
 			width: 100%;
 			position: relative;
@@ -121,18 +138,6 @@ main {
 					letter-spacing: 1px;
 				}
 			}
-		}
-
-		.point {
-			width: $track + 10;
-			height: $track + 10;
-			position: absolute;
-			top: 0;
-			left: 50%;
-			margin-left: calc(-50% - 5px);
-			border: 2px solid #fff;
-			border-radius: 100%;
-			background-color: $blue;
 		}
 	}
 }

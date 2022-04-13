@@ -256,6 +256,21 @@ main .timeline .track__slide {
   transition: height 200ms;
   background-color: #e3e4e5;
 }
+main .timeline .point {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: calc(-50% - 5px);
+  border: 2px solid #fff;
+  border-radius: 100%;
+  background-color: #53819e;
+  opacity: 0;
+}
+main .timeline .point.point-0 {
+  opacity: 1;
+}
 main .timeline .history {
   width: 100%;
   position: relative;
@@ -273,17 +288,6 @@ main .timeline .history__item p {
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 1px;
-}
-main .timeline .point {
-  width: 18px;
-  height: 18px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left: calc(-50% - 5px);
-  border: 2px solid #fff;
-  border-radius: 100%;
-  background-color: #53819e;
 }
 
 aside {

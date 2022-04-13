@@ -68,6 +68,7 @@ export function renderPoints() {
 	for (let i = 0; i < history.length; i++) {
 		const pointContainerEl = $.createElement('div');
 		pointContainerEl.classList.add('point');
+		pointContainerEl.classList.add('point-' + i);
 		pointContainerEl.style.top = historyItemHeaders[i].offsetTop + 'px';
 
 		const pointCenterEl = $.createElement('div');
