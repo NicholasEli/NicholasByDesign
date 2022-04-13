@@ -365,6 +365,7 @@ main .timeline .history__gradient {
   left: 0;
   pointer-events: none;
   background-image: linear-gradient(transparent, #fff);
+  transition: opacity 200ms ease-out;
 }
 @media (min-width: 768px) {
   main .timeline .history__gradient {
@@ -373,6 +374,7 @@ main .timeline .history__gradient {
 }
 main .timeline .history__gradient--inactive {
   opacity: 0;
+  transition: opacity 200ms ease-out;
 }
 main .timeline .history__item {
   margin-bottom: 32px;

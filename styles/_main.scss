@@ -190,6 +190,7 @@ main {
 				left: 0;
 				pointer-events: none;
 				background-image: linear-gradient(transparent, #fff);
+				transition: opacity 200ms ease-out;
 
 				@media (min-width: #{$md}) {
 					width: calc(100% - #{$aside});
@@ -197,6 +198,7 @@ main {
 
 				&--inactive {
 					opacity: 0;
+					transition: opacity 200ms ease-out;
 				}
 			}
 
