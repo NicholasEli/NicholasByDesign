@@ -139,6 +139,19 @@ table {
   --gray: $gray;
 }
 
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 0;
+}
+.container::after {
+  content: "";
+  width: 100%;
+  height: auto;
+  display: block;
+  clear: both;
+}
+
 header {
   width: 100vw;
   height: 50px;
