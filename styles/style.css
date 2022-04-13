@@ -165,7 +165,7 @@ main {
 }
 @media (min-width: 768px) {
   main {
-    width: calc(100% - 180px);
+    width: calc(100% - 360px);
     min-height: calc(100vh - 50px);
   }
 }
@@ -330,7 +330,7 @@ main .timeline .history__gradient {
 }
 @media (min-width: 768px) {
   main .timeline .history__gradient {
-    width: calc(100% - 180px);
+    width: calc(100% - 360px);
   }
 }
 main .timeline .history__gradient--inactive {
@@ -356,9 +356,21 @@ aside {
 }
 @media (min-width: 768px) {
   aside {
-    width: 180px;
+    width: 360px;
     min-height: calc(100vh - 50px);
   }
+}
+aside .qualification {
+  margin-bottom: 32px;
+}
+aside .qualification h4 {
+  color: #53819e;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #53819e;
 }
 
 footer {

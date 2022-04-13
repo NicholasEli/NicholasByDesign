@@ -6,4 +6,18 @@ aside {
 		width: $aside;
 		min-height: calc(100vh - #{$header});
 	}
+
+	.qualification {
+		margin-bottom: $padding * 2;
+
+		h4 {
+			color: $blue;
+			font-weight: bold;
+			font-size: 20px;
+			letter-spacing: 1px;
+			line-height: 1.5;
+			text-transform: uppercase;
+			border-bottom: 1px dotted $blue;
+		}
+	}
 }

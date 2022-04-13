@@ -22,16 +22,19 @@ export default [
 			{ name: 'Next', value: 65 },
 			{ name: 'Vue', value: 75 },
 			{ name: 'CSS (SCSS/LESS)', value: 90 },
+			{ name: 'Cypress', value: 95 },
 		],
 	},
 	{
 		title: 'Backend',
 		scale: ['amateur', 'pro'],
 		items: [
+			{ name: 'Express', value: 50 },
 			{ name: 'MongoDB', value: 75 },
 			{ name: 'MySql', value: 50 },
 			{ name: 'GraphQL', value: 60 },
 			{ name: 'Prisma', value: 60 },
+			{ name: 'Jest', value: 85 },
 		],
 	},
 	{
