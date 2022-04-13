@@ -23,14 +23,14 @@ export default [
 	{
 		name: 'Pairodime',
 		description:
-			'Create Drupal themes for some of the top brands in the snowboard industry and other counter culture style brands. The projects are generally large scale e-commerce sites with brand heavy design, animation and layout personality for end users.  For the admin there is a vast amount of functionality to manage emails, warranty requests, sales reports, inventory, shipping and other customer interaction.\n\nThe sites refreshed every season only changing visually with new features and maintaining legacy database. This creates the exceptional challenge of making sure displayed data is as accurate as previous season.',
+			'Create Drupal themes for some of the top brands in the snowboard industry and other counter culture style brands. The projects are generally large scale e-commerce sites with brand heavy design, animation and layout personality for end users.  For the admin there is a vast amount of functionality to manage emails, warranty requests, sales reports, inventory, shipping and other customer interaction.<br/>The sites refreshed every season only changing visually with new features and maintaining legacy database. This creates the exceptional challenge of making sure displayed data is as accurate as previous season.',
 		from: 2015,
 		to: 2017,
 	},
 	{
 		name: 'Formations Design Group',
 		description:
-			'Develop and extend Joomla! themes for various clients from small business to large corporate clients and local government. Theme development generally consisted of modifying premium templates that came with their own CSS framework and existing JavaScript functionality.\n\nBecause this approach caused various road blocks with the development process, I created our own in house template system that had multiple backend features for managing the theme display.',
+			'Develop and extend Joomla! themes for various clients from small business to large corporate clients and local government. Theme development generally consisted of modifying premium templates that came with their own CSS framework and existing JavaScript functionality.<br/>Because this approach caused various road blocks with the development process, I created our own in house template system that had multiple backend features for managing the theme display.',
 		from: 2013,
 		to: 2014,
 	},

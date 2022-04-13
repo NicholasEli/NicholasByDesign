@@ -5,5 +5,14 @@ export function renderTimeline() {
 
 	history.forEach((item, index) => {
 		const { name, description, from, to } = item;
+
+		const markup = `
+			<div class="timeline__history-item">
+				<h3>${name} (${from} - ${to})</h3>
+				<p>${description}</p>
+			</div>
+		`;
+
+		containerEl.insertAdjacentHTML('beforeend', markup);
 	});
 }
