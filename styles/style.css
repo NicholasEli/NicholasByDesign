@@ -229,6 +229,16 @@ main .headline__title h1,
 main .headline__title p {
   letter-spacing: 1px;
 }
+main .timeline__title {
+  width: 100%;
+  margin-bottom: 32px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #53819e;
+  border-bottom: 1px dotted #53819e;
+}
 main .timeline .history__item {
   margin-bottom: 32px;
 }

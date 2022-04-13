@@ -1,6 +1,7 @@
 import history from './history.js';
 
 export function renderTimeline() {
+	console.log('--Render Timeline History');
 	const containerEl = document.querySelector('.timeline .container .history');
 
 	history.forEach((item, index) => {
