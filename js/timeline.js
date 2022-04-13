@@ -65,11 +65,11 @@ export function renderPoints() {
 	const trackContainerBounds = trackContainer.getBoundingClientRect();
 	const historyItemHeaders = $.querySelectorAll('.history__item h3');
 
-	for (let i = 0; i < history.length; i++) {
+	history.forEach((item, index) => {
 		const pointContainerEl = $.createElement('div');
 		pointContainerEl.classList.add('point');
-		pointContainerEl.classList.add('point-' + i);
-		pointContainerEl.style.top = historyItemHeaders[i].offsetTop + 'px';
+		pointContainerEl.classList.add('point-' + index);
+		pointContainerEl.style.top = historyItemHeaders[index].offsetTop + 'px';
 
 		const pointCenterEl = $.createElement('div');
 		pointCenterEl.classList.add('point__center');
@@ -77,7 +77,7 @@ export function renderPoints() {
 		pointContainerEl.append(pointCenterEl);
 
 		trackContainer.append(pointContainerEl);
-	}
+	});
 	console.log('--Render Timeline Points');
 }
 
@@ -86,19 +86,19 @@ export function renderFlags() {
 	const trackContainerBounds = trackContainer.getBoundingClientRect();
 	const historyItemHeaders = $.querySelectorAll('.history__item h3');
 
-	for (let i = 0; i < history.length; i++) {
+	history.forEach((item, index) => {
 		const flagContainerEl = $.createElement('div');
 		flagContainerEl.classList.add('flag');
-		flagContainerEl.classList.add('flag-' + i);
-		flagContainerEl.style.top = historyItemHeaders[i].offsetTop + 'px';
+		flagContainerEl.classList.add('flag-' + index);
+		flagContainerEl.style.top = historyItemHeaders[index].offsetTop + 'px';
 
 		const flagTextEl = $.createElement('p');
-		flagTextEl.innerText = history[i].from;
+		flagTextEl.innerText = history[index].from;
 		flagTextEl.classList.add('flag__text');
 
 		flagContainerEl.append(flagTextEl);
 
 		trackContainer.append(flagContainerEl);
-	}
+	});
 	console.log('--Render Timeline Flags');
 }
