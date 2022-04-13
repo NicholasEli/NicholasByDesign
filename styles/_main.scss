@@ -84,12 +84,28 @@ main {
 		}
 
 		.track {
+			width: $padding / 2;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow-y: hidden;
+
 			&__slide {
-				//
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: height 200ms;
+				background-color: $gray;
 			}
 		}
 
 		.history {
+			width: 100%;
+			position: relative;
+			padding-left: 25px;
+
 			&__item {
 				margin-bottom: $padding * 2;
 

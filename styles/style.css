@@ -137,6 +137,7 @@ table {
   --lightblue: $lightblue;
   --blue: $blue;
   --gray: $gray;
+  --padding: 16px;
 }
 
 .container {
@@ -238,6 +239,27 @@ main .timeline__title {
   text-transform: uppercase;
   color: #53819e;
   border-bottom: 1px dotted #53819e;
+}
+main .timeline .track {
+  width: 8px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+}
+main .timeline .track__slide {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: height 200ms;
+  background-color: #e3e4e5;
+}
+main .timeline .history {
+  width: 100%;
+  position: relative;
+  padding-left: 25px;
 }
 main .timeline .history__item {
   margin-bottom: 32px;
