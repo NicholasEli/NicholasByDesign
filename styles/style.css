@@ -286,7 +286,7 @@ main .timeline .flag {
   background-color: #53819e;
   opacity: 0;
   z-index: 2;
-  transition: opacity 200ms, right 200ms;
+  transition: opacity 400ms, right 200ms ease-out;
 }
 main .timeline .flag::before {
   content: "";
@@ -302,6 +302,7 @@ main .timeline .flag::before {
 main .timeline .flag.flag-0, main .timeline .flag--active {
   opacity: 1;
   right: 30px;
+  transition: opacity 400ms, right 200ms ease-in;
 }
 main .timeline .flag__text {
   color: #fff;
@@ -315,6 +316,12 @@ main .timeline .history {
 }
 main .timeline .history__item {
   margin-bottom: 32px;
+  opacity: 0;
+  transition: opacity 600ms ease-out;
+}
+main .timeline .history__item-0, main .timeline .history__item--active {
+  opacity: 1;
+  transition: opacity 600ms ease-in;
 }
 main .timeline .history__item h3 {
   margin-bottom: 16px;

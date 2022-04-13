@@ -87,6 +87,7 @@ export function trackScrollEvents() {
 	const trackSlide = $.querySelector('.track__slide');
 	const points = $.querySelectorAll('.point');
 	const flags = $.querySelectorAll('.flag');
+	const historyItems = $.querySelectorAll('.history__item');
 
 	const buffer = 200;
 	window.addEventListener('scroll', (e) => {
@@ -116,13 +117,16 @@ export function trackScrollEvents() {
 		for (let i = 0; i < points.length; i++) {
 			const point = points[i];
 			const flag = flags[i];
+			const item = historyItems[i];
 			const pointBounds = point.getBoundingClientRect();
 			if (trackSlideBounds.bottom >= pointBounds.top) {
 				point.classList.add('point--active');
 				flag.classList.add('flag--active');
+				item.classList.add('history__item--active');
 			} else {
 				point.classList.remove('point--active');
 				flag.classList.remove('flag--active');
+				item.classList.remove('history__item--active');
 			}
 		}
 	});
