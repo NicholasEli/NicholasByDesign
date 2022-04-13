@@ -90,6 +90,10 @@ main {
 			top: 0;
 			left: 0;
 
+			@media (min-width: #{$historyPadding}) {
+				left: 90px;
+			}
+
 			&__slide {
 				width: 100%;
 				min-height: $padding * 2;
@@ -139,7 +143,7 @@ main {
 			z-index: 2;
 			transition: opacity 400ms, right 200ms ease-out;
 
-			@media (max-width: 1090px) {
+			@media (max-width: #{$historyPadding}) {
 				opacity: 0 !important;
 			}
 
@@ -173,6 +177,10 @@ main {
 			width: 100%;
 			position: relative;
 			padding-left: 25px;
+
+			@media (min-width: #{$historyPadding}) {
+				padding-left: 108px;
+			}
 
 			&__gradient {
 				width: 100%;

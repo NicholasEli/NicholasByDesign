@@ -247,6 +247,11 @@ main .timeline .track {
   top: 0;
   left: 0;
 }
+@media (min-width: 1090px) {
+  main .timeline .track {
+    left: 90px;
+  }
+}
 main .timeline .track__slide {
   width: 100%;
   min-height: 32px;
@@ -318,6 +323,11 @@ main .timeline .history {
   width: 100%;
   position: relative;
   padding-left: 25px;
+}
+@media (min-width: 1090px) {
+  main .timeline .history {
+    padding-left: 108px;
+  }
 }
 main .timeline .history__gradient {
   width: 100%;
