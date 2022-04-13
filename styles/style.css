@@ -267,8 +267,9 @@ main .timeline .point {
   border-radius: 100%;
   background-color: #53819e;
   opacity: 0;
+  transition: opacity 200ms;
 }
-main .timeline .point.point-0 {
+main .timeline .point.point-0, main .timeline .point--active {
   opacity: 1;
 }
 main .timeline .flag {
@@ -276,7 +277,7 @@ main .timeline .flag {
   height: 30px;
   position: absolute;
   top: 0;
-  right: 30px;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -285,6 +286,7 @@ main .timeline .flag {
   background-color: #53819e;
   opacity: 0;
   z-index: 2;
+  transition: opacity 200ms, right 200ms;
 }
 main .timeline .flag::before {
   content: "";
@@ -297,8 +299,9 @@ main .timeline .flag::before {
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
 }
-main .timeline .flag.flag-0 {
+main .timeline .flag.flag-0, main .timeline .flag--active {
   opacity: 1;
+  right: 30px;
 }
 main .timeline .flag__text {
   color: #fff;

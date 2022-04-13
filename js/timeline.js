@@ -85,11 +85,14 @@ export function trackScrollEvents() {
 	const trackContainer = $.querySelector('.track');
 	const trackContainerBounds = trackContainer.getBoundingClientRect();
 	const trackSlide = $.querySelector('.track__slide');
+	const points = $.querySelectorAll('.point');
+	const flags = $.querySelectorAll('.flag');
 
-	// Animate track height
 	const buffer = 200;
 	window.addEventListener('scroll', (e) => {
+		// Animate track height
 		const trackContainerBounds = trackContainer.getBoundingClientRect();
+		const trackSlideBounds = trackSlide.getBoundingClientRect();
 		const footerBounds = trackContainer.getBoundingClientRect();
 		const heightCalc =
 			((window.scrollY - trackContainerBounds.y) / trackContainerBounds.height) * 100 + '%';
@@ -107,6 +110,20 @@ export function trackScrollEvents() {
 
 		if (trackContainerBounds.y > buffer) {
 			trackSlide.style.height = '0%';
+		}
+
+		// Animate points & flags
+		for (let i = 0; i < points.length; i++) {
+			const point = points[i];
+			const flag = flags[i];
+			const pointBounds = point.getBoundingClientRect();
+			if (trackSlideBounds.bottom >= pointBounds.top) {
+				point.classList.add('point--active');
+				flag.classList.add('flag--active');
+			} else {
+				point.classList.remove('point--active');
+				flag.classList.remove('flag--active');
+			}
 		}
 	});
 }
