@@ -118,6 +118,47 @@ main {
 			}
 		}
 
+		$flag: 30px;
+		$flagOffset: $flag / 2;
+
+		.flag {
+			width: auto;
+			height: $flag;
+			position: absolute;
+			top: 0;
+			right: $flag;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: -5px;
+			padding: 0 10px;
+			background-color: $blue;
+			opacity: 0;
+			z-index: 2;
+
+			&::before {
+				content: '';
+				position: absolute;
+				right: -($flagOffset);
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-left: $flagOffset solid $blue;
+				border-top: $flagOffset solid transparent;
+				border-bottom: $flagOffset solid transparent;
+			}
+
+			&.flag-0 {
+				opacity: 1;
+			}
+
+			&__text {
+				color: #fff;
+				letter-spacing: 2px;
+				font-weight: bold;
+			}
+		}
+
 		.history {
 			width: 100%;
 			position: relative;

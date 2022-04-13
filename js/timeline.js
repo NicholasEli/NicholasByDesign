@@ -10,7 +10,7 @@ export function renderTimeline() {
 		const { name, description, from, to } = item;
 
 		const markup = `
-			<div class="history__item">
+			<div class="history__item history__item-${index}">
 				<h3>${name} (${from} - ${to})</h3>
 				<p>${description}</p>
 			</div>
@@ -93,6 +93,7 @@ export function renderFlags() {
 		flagContainerEl.style.top = historyItemHeaders[i].offsetTop + 'px';
 
 		const flagTextEl = $.createElement('p');
+		flagTextEl.innerText = history[i].from;
 		flagTextEl.classList.add('flag__text');
 
 		flagContainerEl.append(flagTextEl);
