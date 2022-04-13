@@ -35,28 +35,6 @@ export function renderTrack() {
 
 	containerEl.append(trackContainer);
 
-	const buffer = 200;
-	window.addEventListener('scroll', (e) => {
-		const trackContainerBounds = trackContainer.getBoundingClientRect();
-		const footerBounds = trackContainer.getBoundingClientRect();
-		const heightCalc =
-			((window.scrollY - trackContainerBounds.y) / trackContainerBounds.height) * 100 + '%';
-
-		if (trackContainerBounds.y <= buffer) {
-			trackSlide.style.height = heightCalc;
-		}
-
-		if (
-			(trackContainerBounds.y <= buffer && footerBounds.bottom < window.innerHeight) ||
-			(trackContainerBounds.y <= buffer && heightCalc >= 100)
-		) {
-			trackSlide.style.height = '100%';
-		}
-
-		if (trackContainerBounds.y > buffer) {
-			trackSlide.style.height = '0%';
-		}
-	});
 	console.log('--Render Timeline Track');
 }
 
@@ -101,4 +79,34 @@ export function renderFlags() {
 		trackContainer.append(flagContainerEl);
 	});
 	console.log('--Render Timeline Flags');
+}
+
+export function trackScrollEvents() {
+	const trackContainer = $.querySelector('.track');
+	const trackContainerBounds = trackContainer.getBoundingClientRect();
+	const trackSlide = $.querySelector('.track__slide');
+
+	// Animate track height
+	const buffer = 200;
+	window.addEventListener('scroll', (e) => {
+		const trackContainerBounds = trackContainer.getBoundingClientRect();
+		const footerBounds = trackContainer.getBoundingClientRect();
+		const heightCalc =
+			((window.scrollY - trackContainerBounds.y) / trackContainerBounds.height) * 100 + '%';
+
+		if (trackContainerBounds.y <= buffer) {
+			trackSlide.style.height = heightCalc;
+		}
+
+		if (
+			(trackContainerBounds.y <= buffer && footerBounds.bottom < window.innerHeight) ||
+			(trackContainerBounds.y <= buffer && heightCalc >= 100)
+		) {
+			trackSlide.style.height = '100%';
+		}
+
+		if (trackContainerBounds.y > buffer) {
+			trackSlide.style.height = '0%';
+		}
+	});
 }
