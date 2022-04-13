@@ -5,4 +5,69 @@ main {
 		width: calc(100% - #{$aside});
 		min-height: calc(100vh - #{$header});
 	}
+
+	.headline {
+		width: 100%;
+
+		.container {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			padding-top: $padding * 3;
+			padding-bottom: $padding * 3;
+		}
+
+		&__photo {
+			width: 100px;
+			height: 100px;
+			border: 1px solid $lightblue;
+			border-radius: 100%;
+			overflow: hidden;
+
+			@media (min-width: #{$xs}) {
+				width: 140px;
+				height: 140px;
+			}
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&__title {
+			width: calc(100% - #{100px + $padding});
+			margin-left: $padding;
+
+			@media (min-width: #{$xs}) {
+				width: calc(100% - #{140px + $padding});
+			}
+
+			h1 {
+				font-size: 24px;
+				font-weight: bold;
+				line-height: 1.5;
+				color: $blue;
+
+				@media (min-width: #{$sm}) {
+					font-size: 36px;
+					line-height: 1.25;
+				}
+			}
+
+			p {
+				font-size: 18px;
+				color: darken($lightblue, 35%);
+
+				@media (min-width: #{$sm}) {
+					font-size: 24px;
+				}
+			}
+
+			h1,
+			p {
+				letter-spacing: 1px;
+			}
+		}
+	}
 }
