@@ -7,19 +7,13 @@ export function renderAside() {
 
 	qualifications.forEach((qualification, index) => {
 		const { title, scale } = qualification;
-		const qualificationEl = $.createElement('section');
-		qualificationEl.classList.add('qualification');
-		qualificationEl.classList.add('qualification__' + title.toLowerCase());
+		//const qualificationEl = $.createElement('section');
+		const qualificationEl = `
+			<section class="qualification qualification-${title.toLowerCase()}">
+				<h4>${title}</h4>
+			</section>
+		`;
 
-		// Title
-		const qualificationTitleEl = $.createElement('h4');
-		qualificationTitleEl.innerText = title;
-		qualificationEl.append(qualificationTitleEl);
-
-		// Scale
-		if (scale) {
-		}
-
-		asideContainer.append(qualificationEl);
+		asideContainer.insertAdjacentHTML('beforeend', qualificationEl);
 	});
 }
