@@ -158,10 +158,12 @@ header {
   width: 100vw;
   height: 50px;
   background-color: #53819e;
+  z-index: 3;
 }
 
 main {
   width: 100vw;
+  z-index: 1;
 }
 @media (min-width: 768px) {
   main {
@@ -381,6 +383,7 @@ main .timeline .history__item p {
 aside {
   width: 100vw;
   background-color: #edf1f5;
+  z-index: 2;
 }
 @media (min-width: 768px) {
   aside {
@@ -467,10 +470,10 @@ aside .qualification__list-gauge .gauge__track {
   top: 0;
   left: 0;
   background-color: #53819e;
-  transition: width 200ms ease-out;
+  transition: width 200ms ease-out 600ms;
 }
 aside .qualification__list-gauge .gauge__track--active {
-  transition: width 200ms ease-in;
+  transition: width 200ms ease-in 600ms;
 }
 aside .qualification-achievements .qualification__list li {
   align-items: flex-start;
@@ -483,6 +486,7 @@ footer {
   bottom: 0;
   left: 0;
   background-color: #53819e;
+  z-index: 3;
 }
 
 body {
