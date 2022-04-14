@@ -7,13 +7,28 @@
 @import '_footer.scss';
 
 body {
-	display: flex;
-	flex-direction: column;
 	overflow-x: hidden;
+	.container--main {
+		position: relative;
+		max-width: $xl;
+		display: flex;
+		flex-direction: column;
+		padding: 0;
 
-	@media (min-width: #{$md}) {
-		flex-direction: row;
-		flex-wrap: wrap;
+		&::after {
+			content: '';
+			width: 100vw;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			background-color: $lightblue;
+		}
+
+		@media (min-width: #{$md}) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
 	}
 }
 
