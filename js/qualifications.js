@@ -1,18 +1,5 @@
 export default [
 	{
-		title: 'Education',
-		items: [
-			{ name: 'Clark College', value: '<abbr title="Associates Degree">Assc.</abbr> Web Design' },
-			{ name: 'Solo Learn', value: '<abbr title="Certification">Cert.</abbr> Javascript' },
-			{ name: 'Solo Learn', value: '<abbr title="Certification">Cert.</abbr> PHP' },
-			{ name: 'Mongo University', value: '<abbr title="Certification">Cert.</abbr> MongoDB' },
-		],
-	},
-	{
-		title: 'Other',
-		items: [{ name: '2012 Internship', value: 'Joomla! Developer' }],
-	},
-	{
 		title: 'Frontend',
 		scale: ['utilitarian', 'maestro'],
 		items: [
@@ -35,17 +22,32 @@ export default [
 			{ name: 'GraphQL', value: 65 },
 			{ name: 'Prisma', value: 65 },
 			{ name: 'Jest', value: 85 },
+			{ name: 'Lambda', value: 70 },
+			{ name: 'Cloud Functions', value: 70 },
 		],
 	},
 	{
-		title: 'DevOps',
-		scale: ['utilitarian', 'maestro'],
+		title: 'Education',
 		items: [
-			{ name: 'AWS', value: 50 },
-			{ name: 'Firebase', value: 75 },
-			{ name: 'Google Cloud', value: 40 },
+			{ name: 'Clark College', value: '<abbr title="Associates Degree">Assc.</abbr> Web Design' },
+			{ name: 'Solo Learn', value: '<abbr title="Certification">Cert.</abbr> Javascript' },
+			{ name: 'Solo Learn', value: '<abbr title="Certification">Cert.</abbr> PHP' },
+			{ name: 'Mongo University', value: '<abbr title="Certification">Cert.</abbr> MongoDB' },
 		],
 	},
+	{
+		title: 'Other',
+		items: [{ name: '2012 Internship', value: 'Joomla! Developer' }],
+	},
+	// {
+	// 	title: 'DevOps',
+	// 	scale: ['utilitarian', 'maestro'],
+	// 	items: [
+	// 		{ name: 'AWS', value: 50 },
+	// 		{ name: 'Firebase', value: 75 },
+	// 		{ name: 'Google Cloud', value: 40 },
+	// 	],
+	// },
 	// {
 	// 	title: 'Achievements',
 	// 	items: [
