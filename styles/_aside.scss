@@ -107,5 +107,9 @@ aside {
 				}
 			}
 		}
+
+		&-achievements .qualification__list li {
+			align-items: flex-start;
+		}
 	}
 }

@@ -56,6 +56,7 @@ main {
 			}
 
 			p {
+				margin-bottom: $padding / 2;
 				font-size: 18px;
 				color: darken($lightblue, 35%);
 
@@ -67,6 +68,27 @@ main {
 			h1,
 			p {
 				letter-spacing: 1px;
+			}
+
+			&__social {
+				display: flex;
+				text-align: center;
+				li {
+					a {
+						width: $padding * 1.5;
+						height: $padding * 1.5;
+						display: inline-block;
+						svg {
+							* {
+								fill: darken($lightblue, 35%);
+							}
+						}
+					}
+
+					& + li {
+						margin-left: $padding / 2;
+					}
+				}
 			}
 		}
 	}

@@ -18,7 +18,7 @@ export default [
 		items: [
 			{ name: 'React', value: 95 },
 			{ name: 'React Native', value: 70 },
-			{ name: 'Meteor', value: 65 },
+			{ name: 'Meteor', value: 80 },
 			{ name: 'Next', value: 65 },
 			{ name: 'Vue', value: 75 },
 			{ name: 'CSS (SCSS/LESS)', value: 90 },
@@ -29,11 +29,11 @@ export default [
 		title: 'Backend',
 		scale: ['amateur', 'pro'],
 		items: [
-			{ name: 'Express', value: 50 },
+			{ name: 'Express', value: 65 },
 			{ name: 'MongoDB', value: 75 },
-			{ name: 'MySql', value: 50 },
-			{ name: 'GraphQL', value: 60 },
-			{ name: 'Prisma', value: 60 },
+			{ name: 'MySQL', value: 50 },
+			{ name: 'GraphQL', value: 65 },
+			{ name: 'Prisma', value: 65 },
 			{ name: 'Jest', value: 85 },
 		],
 	},
@@ -44,6 +44,21 @@ export default [
 			{ name: 'AWS', value: 50 },
 			{ name: 'Firebase', value: 75 },
 			{ name: 'Google Cloud', value: 40 },
+		],
+	},
+	{
+		title: 'Achievements',
+		items: [
+			{
+				name: 'US Army',
+				value:
+					'Combatives Honor Grad<br/><br/>Top logistician in Northwest Military Region<br/><br/>Military excellence award presented by Governor of Washington State',
+			},
+			{
+				name: 'Clark College',
+				value:
+					'Lead developer consecutive quarters<br/><br/>Treasurer of Digital<br/><br/>Communications Club',
+			},
 		],
 	},
 ];
