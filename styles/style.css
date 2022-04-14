@@ -365,7 +365,7 @@ main .timeline .history__gradient--inactive {
   transition: opacity 200ms ease-out;
 }
 main .timeline .history__item {
-  margin-bottom: 32px;
+  margin-bottom: 64px;
 }
 main .timeline .history__item h3 {
   margin-bottom: 16px;

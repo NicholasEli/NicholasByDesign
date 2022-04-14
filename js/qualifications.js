@@ -14,7 +14,7 @@ export default [
 	},
 	{
 		title: 'Frontend',
-		scale: ['amateur', 'pro'],
+		scale: ['utilitarian', 'maestro'],
 		items: [
 			{ name: 'React', value: 95 },
 			{ name: 'React Native', value: 70 },
@@ -27,7 +27,7 @@ export default [
 	},
 	{
 		title: 'Backend',
-		scale: ['amateur', 'pro'],
+		scale: ['utilitarian', 'maestro'],
 		items: [
 			{ name: 'Express', value: 65 },
 			{ name: 'MongoDB', value: 75 },
@@ -39,26 +39,26 @@ export default [
 	},
 	{
 		title: 'DevOps',
-		scale: ['amateur', 'pro'],
+		scale: ['utilitarian', 'maestro'],
 		items: [
 			{ name: 'AWS', value: 50 },
 			{ name: 'Firebase', value: 75 },
 			{ name: 'Google Cloud', value: 40 },
 		],
 	},
-	{
-		title: 'Achievements',
-		items: [
-			{
-				name: 'US Army',
-				value:
-					'Combatives Honor Grad<br/><br/>Top logistician in Northwest Military Region<br/><br/>Military excellence award presented by Governor of Washington State',
-			},
-			{
-				name: 'Clark College',
-				value:
-					'Lead developer consecutive quarters<br/><br/>Treasurer of Digital<br/><br/>Communications Club',
-			},
-		],
-	},
+	// {
+	// 	title: 'Achievements',
+	// 	items: [
+	// 		{
+	// 			name: 'US Army',
+	// 			value:
+	// 				'Combatives Honor Grad<br/><br/>Top logistician in Northwest Military Region<br/><br/>Military excellence award presented by Governor of Washington State',
+	// 		},
+	// 		{
+	// 			name: 'Clark College',
+	// 			value:
+	// 				'Lead developer consecutive quarters<br/><br/>Treasurer of Digital<br/><br/>Communications Club',
+	// 		},
+	// 	],
+	// },
 ];
