@@ -470,7 +470,7 @@ aside .qualification__list-gauge .gauge__track {
   top: 0;
   left: 0;
   background-color: #53819e;
-  transition: width 200ms ease-out 600ms;
+  transition: width 200ms ease-out;
 }
 aside .qualification__list-gauge .gauge__track--active {
   transition: width 200ms ease-in 600ms;
