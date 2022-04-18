@@ -30,7 +30,7 @@ export default [
 	{
 		name: 'Formations Design Group',
 		description:
-			'Develop and extend Joomla! themes for various clients from small business, corporate  and local government. ',
+			'Develop and extend Joomla! themes for various clients from small business, corporate  and local government.',
 		from: 2013,
 		to: 2014,
 	},
