@@ -16,7 +16,7 @@ export default [
 		title: 'Backend',
 		scale: ['utilitarian', 'maestro'],
 		items: [
-			{ name: 'Express', value: 65 },
+			{ name: 'Node/Express', value: 65 },
 			{ name: 'MongoDB', value: 75 },
 			{ name: 'MySQL', value: 50 },
 			{ name: 'GraphQL', value: 65 },
