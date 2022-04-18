@@ -57,7 +57,7 @@ main {
 			}
 
 			p {
-				margin-bottom: $padding / 2;
+				margin-bottom: calc($padding / 2);
 				font-size: 18px;
 				color: darken($lightblue, 35%);
 
@@ -87,7 +87,7 @@ main {
 					}
 
 					& + li {
-						margin-left: $padding / 2;
+						margin-left: calc($padding / 2);
 					}
 				}
 			}
@@ -148,7 +148,7 @@ main {
 		}
 
 		$flag: 30px;
-		$flagOffset: $flag / 2;
+		$flagOffset: calc($flag / 2);
 
 		.flag {
 			width: auto;
@@ -238,6 +238,15 @@ main {
 					font-size: 14px;
 					line-height: 1.5;
 					letter-spacing: 1px;
+
+					& + p {
+						margin-top: $padding;
+						font-size: 12px;
+						font-style: italic;
+						span {
+							font-weight: bold;
+						}
+					}
 				}
 			}
 		}

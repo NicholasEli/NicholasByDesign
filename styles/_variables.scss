@@ -13,7 +13,7 @@ $historyPadding: 1090px;
 
 $header: 50px;
 $aside: 360px;
-$track: $padding / 2;
+$track: calc($padding / 2);
 
 :root {
 	--lightblue: $lightblue;

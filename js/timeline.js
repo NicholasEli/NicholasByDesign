@@ -7,12 +7,19 @@ export function renderTimeline() {
 	const containerEl = $.querySelector(historySelector);
 
 	history.forEach((item, index) => {
-		const { name, description, from, to } = item;
+		const { name, description, from, to, projects } = item;
+
+		const _projects = (proj) => {
+			if (!proj) return '';
+			const str = proj.join(',').replace(/,/g, ' ');
+			return `<p><span>Notable Projects:</span> ${str}</p>`;
+		};
 
 		const markup = `
 			<div class="history__item history__item-${index}">
 				<h3>${name} (${from} - ${to})</h3>
 				<p>${description}</p>
+				${_projects(projects)}
 			</div>
 		`;
 
