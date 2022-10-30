@@ -6,8 +6,12 @@
 @import '_aside.scss';
 @import '_footer.scss';
 
+html,
 body {
 	overflow-x: hidden;
+}
+
+body {
 	.container--main {
 		position: relative;
 		max-width: $xl;
