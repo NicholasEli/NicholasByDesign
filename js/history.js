@@ -5,7 +5,7 @@ export default [
 			'Client services and care focused software solutions, lead and mentor web team on process and best practices.',
 		projects: ['CAPiTA Snowboards', 'Forum Snowboards'],
 		from: 2020,
-		to: 2022,
+		to: 'current',
 	},
 	{
 		name: 'Rock Paper Coin',
