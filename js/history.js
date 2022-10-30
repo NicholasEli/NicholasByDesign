@@ -1,5 +1,13 @@
 export default [
 	{
+		name: 'Solver Collective',
+		description:
+			'Client services and care focused software solutions, lead and mentor web team on process and best practices.',
+		projects: ['CAPiTA Snowboards', 'Forum Snowboards'],
+		from: 2020,
+		to: 2022,
+	},
+	{
 		name: 'Rock Paper Coin',
 		description:
 			'Develop systems by studying operations; designing, developing and installing software solutions; support and develop software team.',
