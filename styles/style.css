@@ -120,7 +120,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -147,7 +147,7 @@ table {
   padding: 16px;
 }
 .container::after {
-  content: "";
+  content: '';
   width: 100%;
   height: auto;
   display: block;
@@ -292,7 +292,8 @@ main .timeline .point {
   opacity: 0;
   transition: opacity 200ms;
 }
-main .timeline .point.point-0, main .timeline .point--active {
+main .timeline .point.point-0,
+main .timeline .point--active {
   opacity: 1;
 }
 main .timeline .flag {
@@ -317,7 +318,7 @@ main .timeline .flag {
   }
 }
 main .timeline .flag::before {
-  content: "";
+  content: '';
   position: absolute;
   right: -15px;
   bottom: 0;
@@ -327,7 +328,8 @@ main .timeline .flag::before {
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
 }
-main .timeline .flag.flag-0, main .timeline .flag--active {
+main .timeline .flag.flag-0,
+main .timeline .flag--active {
   opacity: 1;
   right: 30px;
   transition: opacity 400ms, right 200ms ease-in;
@@ -497,7 +499,8 @@ footer {
   z-index: 3;
 }
 
-body {
+body,
+html {
   overflow-x: hidden;
 }
 body .container--main {
@@ -508,7 +511,7 @@ body .container--main {
   padding: 0;
 }
 body .container--main::after {
-  content: "";
+  content: '';
   width: 100vw;
   height: 100%;
   position: absolute;
