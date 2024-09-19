@@ -11,5 +11,5 @@ const getHeaderHeight = function () {
 };
 
 export const header = function () {
-	header();
+	getHeaderHeight();
 };
