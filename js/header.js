@@ -1,4 +1,4 @@
-export const header = function () {
+const getHeaderHeight = function () {
 	const root = document.querySelector(':root');
 	const header = document.querySelector('header');
 
@@ -8,4 +8,8 @@ export const header = function () {
 	root.style.setProperty('--header-height', headerHeight + 'px');
 
 	return headerHeight;
+};
+
+export const header = function () {
+	header();
 };
