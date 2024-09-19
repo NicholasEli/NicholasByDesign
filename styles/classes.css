@@ -1,0 +1,23 @@
+.hide,
+.show-md,
+.show-lg,
+.show-flex-md,
+.show-flex-lg {
+	display: none;
+}
+
+@media (min-width: 720px) {
+	.show-md {
+		display: block;
+	}
+}
+
+@media (min-width: 1080px) {
+	.show-flex-lg {
+		display: block;
+	}
+
+	.show-flex-lg {
+		display: block;
+	}
+}

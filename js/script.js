@@ -1,6 +1,7 @@
-window.onload = function () {
-	console.log('--Javascript Loading');
-	// Timeline / Main
+import { header } from './header.js';
 
-	console.log('--Javascript Loaded');
+window.onload = async function () {
+	console.log('--Init Scripts');
+
+	console.log('--Scripts Complete');
 };

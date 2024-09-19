@@ -1,0 +1,9 @@
+.home__date {
+	width: 100%;
+}
+
+.home__date p {
+	font-size: 30px;
+	font-family: var(--zuecos);
+	color: #fff;
+}
