@@ -1,3 +1,7 @@
 body {
 	background-color: var(--black-100);
 }
+
+main {
+	margin-top: var(--header-height);
+}

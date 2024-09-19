@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rosarivo:ital@0;1&display=swap');
 /** Base **/
-@import './reset.css';
 @import './variables.css';
+@import './reset.css';
 
 /** Classes **/
 @import './container.css';

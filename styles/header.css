@@ -46,6 +46,10 @@ header li:after {
 	right: -4px;
 }
 
+header li:last-of-type::after {
+	content: none;
+}
+
 header h1,
 header a,
 header p,
@@ -68,6 +72,26 @@ header p {
 	font-weight: 400;
 }
 
-header a {
+header a,
+header a:visited {
+	position: relative;
 	text-transform: lowercase;
+	text-decoration: none;
+}
+
+header a.active,
+header a::before {
+	content: '';
+	width: 0;
+	height: 2px;
+	position: absolute;
+	top: calc(50% + 2px);
+	left: 0;
+	transform: translateY(-50%);
+	background-color: #fff;
+	transition: width 200ms ease-in-out;
+}
+
+header a:hover::before {
+	width: 100%;
 }

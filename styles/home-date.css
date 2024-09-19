@@ -2,8 +2,65 @@
 	width: 100%;
 }
 
+.home__date .container {
+	max-width: calc(100% - 6rem);
+	display: flex;
+	justify-content: flex-end;
+}
+
 .home__date p {
-	font-size: 30px;
-	font-family: var(--zuecos);
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	gap: 0.5rem;
 	color: #fff;
+	line-height: 1;
+}
+
+.home__date p svg {
+	width: 30px;
+	position: absolute;
+	top: -2rem;
+	left: -2rem;
+	transform: rotate(0deg);
+	animation: sun 60s linear infinite;
+}
+
+@keyframes sun {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.home__date p svg * {
+	fill: var(--yellow-100);
+}
+
+.home__date p span {
+	color: inherit;
+	line-height: inherit;
+}
+
+.home__date .num {
+	font-size: 80px;
+	font-family: var(--zuecos);
+}
+
+.home__date .label {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	top: -1rem;
+}
+
+.home__date .label span {
+	text-transform: lowercase;
+}
+
+.home__date .month {
+	font-size: 2rem;
+	font-family: var(--zuecos);
 }

@@ -89,7 +89,7 @@ video {
   vertical-align: baseline;
   font: inherit;
   font-size: 12px;
-  font-family: 'Neue Montreal';
+  font-family: var(--helvectica);
   font-weight: 300;
   letter-spacing: 1px;
   line-height: 1.5;
