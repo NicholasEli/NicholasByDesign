@@ -18,6 +18,57 @@ npm run build
 npm start
 ```
 
+## Directory guide
+
+### `app/` — routes and server-side page loading
+
+Next.js uses this directory to decide which code runs for each URL.
+
+- `app/page.tsx`: Handles `/`, fetches content from Prismic, and passes it to the HomePage component.
+- `app/layout.tsx`: Provides the shared HTML document, metadata, and Prismic preview toolbar.
+- `app/home-page/page.tsx`: Redirects `/home-page` to `/`.
+- `app/slice-simulator/page.tsx`: Renders slices in isolation for Prismic's live previews.
+- `app/api/`: Contains server endpoints for entering/exiting previews and revalidating cached content.
+
+Add a folder with a `page.tsx` file to create another page route. For example,
+`app/about/page.tsx` would handle `/about`.
+
+### `components/` — reusable React presentation
+
+This directory contains React components used by routes or other components.
+Components define the JSX and presentation; they do not create URL routes.
+
+`components/HomePage.tsx` receives the fetched page as a prop, renders its heading,
+and uses `SliceZone` to render its ordered slices. Add shared UI such as navigation,
+buttons, cards, and page layouts here.
+
+### `customtypes/` — Prismic page and content field definitions
+
+The folder is named `customtypes/` in lowercase. Each type has an `index.json`
+model that describes its fields and, for page types, its available slices.
+
+- `customtypes/home_page/`: The singleton Home Page type, with a heading, Slice Zone, and SEO fields.
+- `customtypes/heading1/`: The existing standalone heading type used as the homepage fallback.
+- `customtypes/editorial/`: The existing standalone Editorial content type. It is separate from the shared Editorial slice.
+
+These models describe what editors can enter. The actual heading text, body copy,
+and selected images live in documents in Prismic and are fetched through its API.
+Use the Prismic CLI or Type Builder to change models rather than editing their
+JSON files manually.
+
+### `slices/` — reusable Prismic page sections
+
+A slice pairs a content model with a local React component. Editors select and
+reorder these sections in Prismic's Page Builder.
+
+- `slices/Editorial/model.json`: Defines the Editorial slice's heading, body, and image fields.
+- `slices/Editorial/index.tsx`: Defines the React/JSX layout that displays those fields.
+- `slices/Editorial/README.md`: Describes the slice's implementation and usage.
+- `slices/index.ts`: A generated mapping from slice API IDs to React components, consumed by `SliceZone`.
+
+Change the JSX to change how a slice looks. Change its model when you need new
+editable fields. Push model changes to Prismic and deploy React changes to Netlify.
+
 ## Pages and Prismic content
 
 `app/page.tsx` fetches a published `home_page` document and renders
@@ -28,9 +79,9 @@ The shared client is configured in `prismicio.ts`, using the repository and
 document URLs in `prismic.config.json`. Add routes under `app/` and query content:
 
 ```tsx
-import { createClient } from '@/prismicio';
+import { create_client } from '@/prismicio';
 
-const client = createClient();
+const client = create_client();
 const page = await client.getSingle('home_page');
 ```
 
@@ -57,13 +108,83 @@ separate from the new shared Editorial slice and have been preserved.
 Models are in `customtypes/` and `slices/Editorial/model.json`. Use Prismic's
 CLI or Type Builder to edit them; JSX and CSS stay in this repository.
 
+## Prismic commands and content fetching
+
+Run CLI commands from the project root. They use the repository configured in
+`prismic.config.json`. If prompted to authenticate, run `npx prismic login`.
+
+### Check what changed
+
 ```sh
-npx prismic pull
 npx prismic status
 ```
 
-Prismic requires model changes to be committed before pushing. Review the model
-changes and `npx prismic status` before `npx prismic push`.
+This compares local models with Prismic and reports additions, updates, deletions,
+and any model changes that must be committed before syncing.
+
+### Push local models to Prismic
+
+After changing models with the CLI, review and commit the relevant model files,
+then push them:
+
+```sh
+npx prismic status
+git diff -- customtypes/ slices/Editorial/model.json
+git add customtypes/ slices/Editorial/model.json
+git diff --cached
+git commit -m "Update Prismic content models"
+npx prismic push
+```
+
+Adjust the slice paths when working on other slices. Include any additional
+changed model files reported by `status` and review the staged changes before
+committing.
+
+`push` sends model definitions to Prismic. React components remain in Git and are
+deployed to Netlify. Document text and images are edited and published in Prismic.
+Review deletion reports carefully; the CLI requires an explicit force option to
+delete remote models.
+
+### Pull model changes from Prismic
+
+After editing fields or slices in Prismic's Type Builder, first commit any local
+model changes you want to keep, then run:
+
+```sh
+npx prismic status
+npx prismic pull
+npm run typecheck
+```
+
+`pull` makes local model files match Prismic, regenerates TypeScript types, and
+can scaffold missing page/slice components. Review the resulting Git diff. It
+syncs model definitions; it does not download published documents into this repo.
+
+### Fetch document content in the app
+
+Content is loaded with the SDK inside server-side pages, rather than with the
+CLI's `pull` command:
+
+```tsx
+import { create_client } from '@/prismicio';
+
+const client = create_client();
+
+// Fetch the published singleton homepage.
+const home_page = await client.getSingle('home_page');
+
+// Fetch all published standalone Editorial documents.
+const editorial_documents = await client.getAllByType('editorial');
+```
+
+For a repeatable page type with a UID field, use
+`client.getByUID('your_type', 'your-uid')` instead. Document fields are in
+`home_page.data`, and its ordered slice content is in `home_page.data.slices`.
+Render those fields with Prismic's React components and `SliceZone`.
+
+Queries normally return published documents. An empty query can throw
+`NotFoundError`; publish a matching document or handle the missing content in the
+route. Draft documents are available through the configured preview flow.
 
 ## Previews
 
@@ -82,3 +203,22 @@ been removed so Next.js owns routing.
 After deployment, add the deployed `/api/preview` URL in Prismic and update the
 slice simulator URL to the deployed site. Local development URLs are already
 configured.
+
+## Coding standards
+
+`AGENTS.md` adapts the shared Local Legends web and mobile coding conventions
+to this Next.js project. Maintained source files use snake_case variables and
+helpers, PascalCase components and types, JSDoc, object parameters, grouped
+imports, and BEM class names. Framework signatures and external API names are
+preserved. Existing TypeScript remains in place.
+
+```sh
+npm run format
+npm run format:check
+```
+
+Prettier uses the correct parser for each file and the shared 100-column,
+two-space, single-quote, no-trailing-comma settings. EditorConfig and VS Code
+format-on-save settings are included; install the Prettier VS Code extension
+to use the configured editor formatter. Generated Prismic and Next.js files,
+content models, and lockfiles are excluded from formatting.

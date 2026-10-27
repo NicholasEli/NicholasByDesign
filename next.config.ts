@@ -1,5 +1,8 @@
+/**
+ * Next.js configuration, using the framework defaults.
+ */
 import type { NextConfig } from 'next';
 
-const nextConfig: NextConfig = {};
+const next_config: NextConfig = {};
 
-export default nextConfig;
+export default next_config;

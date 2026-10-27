@@ -1,0 +1,15 @@
+# Build artifacts and dependencies
+node_modules/
+.next/
+.netlify/
+out/
+
+# Generated declarations, indexes, and lockfiles
+next-env.d.ts
+prismicio-types.d.ts
+slices/index.ts
+package-lock.json
+
+# Prismic models are maintained by its CLI and Type Builder
+customtypes/
+slices/**/model.json
