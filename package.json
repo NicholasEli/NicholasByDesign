@@ -1,0 +1,29 @@
+{
+  "name": "nicholasbydesign",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicholasEli/NicholasByDesign.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicholasEli/NicholasByDesign/issues"
+  },
+  "homepage": "https://github.com/NicholasEli/NicholasByDesign#readme",
+  "description": "",
+  "dependencies": {
+    "@hono/hono": "npm:@jsr/hono__hono@^5.0.0-rc.1",
+    "@hono/netlify": "npm:@jsr/hono__netlify@^1.0.2",
+    "@prismicio/client": "^7.22.0",
+    "@prismicio/next": "^2.3.0",
+    "@prismicio/react": "^3.4.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "babel-plugin-react-compiler": "1.0.0"
+  }
+}
