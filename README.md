@@ -2,6 +2,66 @@
 
 Next.js App Router, React, Prismic, and Netlify.
 
+## How Prismic content fits together
+
+The structure goes from **page type → page document → slices → fields**.
+
+### 1. Page types — the blueprints
+
+A page type defines the structure available for a kind of page: its fields,
+SEO metadata, and which slices editors can add. For example, a Home Page type
+can allow Hero and Editorial slices, while a Blog Post type can have author
+and publication-date fields plus article slices.
+
+In this project, **Home Page** (`home_page`) is a page type. Its model lives in
+`customtypes/home_page/index.json`, and it allows the Editorial slice.
+
+### 2. Page documents — the actual pages
+
+A page document is created from a page type and filled with content in Prismic.
+It contains the entered field values and its ordered list of slices. Publish
+the document to make its content available to the website's normal queries.
+
+Our Home Page type is a singleton, so it allows one document. Other page types
+can be repeatable, such as a Blog Post type used for many individual posts.
+
+### 3. Slices — reusable page sections
+
+Slices are reusable sections containing editable content fields. Editors add,
+remove, and reorder them within a page's Slice Zone. A page might contain a
+Hero slice, an Editorial slice, an Image Gallery slice, and a Call to Action slice.
+The page type determines which of those sections are available.
+
+Each slice has a model describing its editable fields and a local React component
+controlling its JSX layout. Our Editorial component lives in
+`slices/Editorial/index.tsx`; `SliceZone` renders it when a page contains a slice
+with the API ID `editorial`.
+
+### 4. Fields — the content inside pages and slices
+
+Fields hold individual values such as text, rich text, images, links, and dates.
+They can belong directly to a page or to a slice. Our Home Page has a page-level
+heading, while each Editorial slice has its own heading, body, and optional image.
+
+For example, a Home Page document could contain:
+
+```text
+Home Page document (created from the Home Page type)
+├── Heading: "Welcome"
+└── Slices
+    ├── Editorial
+    │   ├── Heading: "Our story"
+    │   ├── Body: rich text about the studio
+    │   └── Image: a studio photo
+    └── Editorial
+        ├── Heading: "Our approach"
+        ├── Body: rich text about the process
+        └── Image: a project photo
+```
+
+Prismic stores the models and document content. The local React components
+determine how that content appears on the website.
+
 ## Run locally
 
 ```sh
@@ -205,6 +265,26 @@ slice simulator URL to the deployed site. Local development URLs are already
 configured.
 
 ## Coding standards
+
+### Global colors and typography
+
+`app/styles.css` is imported by the root layout and applies to every page.
+Use its CSS custom properties when styling components:
+
+| Token               | Value     | Usage                           |
+| ------------------- | --------- | ------------------------------- |
+| `--color-primary`   | `#7C3AED` | Main brand purple               |
+| `--color-secondary` | `#A78BFA` | Lavender accents and links      |
+| `--color-tertiary`  | `#38BDF8` | Cyan accents and keyboard focus |
+| `--color-neutral`   | `#090D16` | Dark page background            |
+
+Headings use **Plus Jakarta Sans**, body text uses **Inter**, and labels, buttons,
+and code use **JetBrains Mono**. The `.label` class applies label typography to
+other elements. The fonts are loaded through `next/font/google`, downloaded at
+build time, and served by the application. Supporting surface/text colors and
+responsive heading sizes are also defined in the global stylesheet.
+
+### Source formatting
 
 `AGENTS.md` adapts the shared Local Legends web and mobile coding conventions
 to this Next.js project. Maintained source files use snake_case variables and

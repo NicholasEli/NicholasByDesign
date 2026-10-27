@@ -1,0 +1,148 @@
+/**
+ * Global palette and typography from the NicholasByDesign visual reference.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Brand colors from the supplied palette. */
+  --color-primary: #7c3aed;
+  --color-secondary: #a78bfa;
+  --color-tertiary: #38bdf8;
+  --color-neutral: #090d16;
+
+  /* Supporting dark surfaces and text inspired by the reference. */
+  --color-background: var(--color-neutral);
+  --color-surface: #1c1f28;
+  --color-surface-raised: #252832;
+  --color-border: #47414f;
+  --color-text: #cbc4d9;
+  --color-text-heading: #e0e2ef;
+  --color-text-muted: #a5a0af;
+  --color-text-on-primary: #ffffff;
+  --color-text-on-accent: #2e1065;
+  --color-focus: var(--color-tertiary);
+
+  /* Font files are loaded and self-hosted by next/font in the root layout. */
+  --font-headline: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
+  --font-label: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+
+  --font-size-body: 1rem;
+  --font-size-label: 0.875rem;
+  --font-size-h1: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  --font-size-h2: clamp(2rem, 1.25rem + 3vw, 3.5rem);
+  --font-size-h3: clamp(1.5rem, 1.15rem + 1.5vw, 2.25rem);
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em;
+  font-family: var(--font-headline);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-text-heading);
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+label,
+button,
+.label {
+  font-family: var(--font-label);
+  font-size: var(--font-size-label);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-label);
+}
+
+a {
+  color: var(--color-secondary);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--color-tertiary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--color-text-on-primary);
+  background-color: var(--color-primary);
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

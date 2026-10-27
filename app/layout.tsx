@@ -5,8 +5,29 @@ import type { ReactNode } from 'react';
 
 import { PrismicPreview } from '@prismicio/next';
 import type { Metadata } from 'next';
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 
 import { repository_name } from '../prismicio';
+
+import './styles.css';
+
+const headline_font = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-plus-jakarta-sans'
+});
+
+const body_font = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter'
+});
+
+const label_font = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono'
+});
 
 export const metadata: Metadata = {
   title: 'NicholasByDesign'
@@ -19,7 +40,10 @@ export const metadata: Metadata = {
  */
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${headline_font.variable} ${body_font.variable} ${label_font.variable}`}
+    >
       <body>
         {children}
         <PrismicPreview repositoryName={repository_name} />
