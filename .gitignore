@@ -1,5 +1,8 @@
 # dev
 .netlify/
+.next/
+out/
+*.tsbuildinfo
 .yarn/
 !.yarn/releases
 .vscode/*
@@ -15,6 +18,8 @@ node_modules/
 # env
 .env
 .env.production
+.env.local
+.env.*.local
 
 # logs
 logs/

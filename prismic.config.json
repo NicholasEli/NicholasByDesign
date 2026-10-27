@@ -1,0 +1,9 @@
+{
+  "repositoryName": "nicholasbydesign",
+  "routes": [
+    {
+      "type": "home_page",
+      "path": "/"
+    }
+  ]
+}
