@@ -204,6 +204,12 @@ labels/chips use JetBrains Mono. The decorative section tag uses La Belle Aurore
 Cards stack on mobile and tablet and form three equal columns at `min-width: 1024px`.
 The section adds no animation or interactive card behavior.
 
+The pillar icons use SVG Repo's [info circle](https://www.svgrepo.com/svg/525388/info-circle),
+[Git](https://www.svgrepo.com/svg/473619/git), and
+[copy](https://www.svgrepo.com/show/527658/copy.svg) vectors in that order. Their
+geometry is stored inline and inherits each card's existing accent color; the
+copy icon retains its duotone opacity.
+
 `app/styles.css` owns shared `--color-neon-*` accents, muted/tag colors,
 `--section-max-width`, and `--section-gutter`. Use `.section-shell` for horizontal
 gutters, `.section-shell__container` for centered content, and

@@ -85,9 +85,7 @@
 .engineering-pillars__icon svg {
   width: 1.75rem;
   height: 1.75rem;
-  stroke: currentColor;
-  stroke-width: 2.5;
-  stroke-linejoin: round;
+  stroke: none;
 }
 
 .engineering-pillars__badge {
