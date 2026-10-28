@@ -214,7 +214,7 @@
 
 .home-hero__geometry {
   transform-origin: center;
-  animation: hero-float 10.6667s ease-in-out infinite;
+  animation: hero-float 7.1111s ease-in-out infinite;
 }
 
 .home-hero__edges {
@@ -225,7 +225,7 @@
 
 .home-hero__connection {
   opacity: 0;
-  transition: opacity 600ms ease;
+  transition: opacity 400ms ease;
 }
 
 .home-hero__connection--active {

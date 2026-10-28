@@ -173,11 +173,11 @@ JetBrains Mono, and decorative HTML tags use La Belle Aurore. `app/hero.css`
 contains the responsive layout and hero-scoped neon colors; other pages retain
 the global palette. The SVG network keeps its slow floating rotation without any
 filled faces. Each point stays linked to its nearest neighbor while a second
-connection randomly switches between the next two closest points about every 1.47 seconds,
+connection randomly switches between the next two closest points about every 0.98 seconds,
 with fading lines. The name's cyan/magenta offsets stay static. Reduced-motion preferences stop
 rotation, rewiring, transitions, and smooth scrolling. The wireframe rotation loop
-takes about 10.67 seconds and connection fades take 600ms, running 50% faster
-than the original timings.
+takes about 7.11 seconds and connection fades take 400ms, running another 50% faster
+than the previous timings (2.25 times the original speed).
 
 The contact button is a native `#contact` link. Once a section with `id="contact"`
 is added, it will scroll smoothly into view. No placeholder contact section is
