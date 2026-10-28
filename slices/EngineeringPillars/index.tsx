@@ -13,43 +13,46 @@ const pillars = [
   {
     number: '01',
     theme: 'frontend',
-    title: 'Frontend Engineering',
+    title: 'Defining The Outcome',
     description:
-      'Zero-jank component architectures utilizing Next.js App Router, React 19, reactive state fabrics, WebGL canvas integration, and WCAG AAA compliance.',
+      'Any high-level goal must be broken down into clearly defined epics with realistic timelines and assignable tasks to establish reasonable expectations and predictable outcomes.',
     features: [
-      'Hydration-free RSC & Island Systems',
-      'GPU-Accelerated 3D Visuals (Three.js/WebGL)',
-      'Micro-Frontend Module Federation'
+      'Declarable goal epics/chapters',
+      'Devise a realistic timeline',
+      'Distributive micro tasks'
     ],
-    stack: ['TypeScript', 'React 19', 'Next.js', 'Tailwind', 'WebGL'],
+    stack: [
+      'Project Management',
+      'Goal Definition',
+      'Epic Planning',
+      'Timeline Planning',
+      'Task Breakdown'
+    ],
     icon_path: 'M20 5H3v13h11M1 22h13M8 18v4M19 10h7v13h-7zM22.5 19v1'
   },
   {
     number: '02',
     theme: 'spatial',
-    title: 'UX & Spatial Systems',
+    title: 'Review Oriented Progress',
     description:
-      'Multi-brand design system tokenization, cognitive load mitigation, fluid spatial composition, automated Figma-to-code pipelines, and high-frequency tactile physics.',
-    features: [
-      'Semantic DTCG Token Hierarchies',
-      'Information Density Ergonomics',
-      'Spring Physics & Dynamic Micro-Interactions'
+      'The best way to mitigate issues in production is a series review and approval steps and not be afraid of rejection.',
+    features: ['Structured review', 'Actionable feedback', 'Clear acceptance criteria'],
+    stack: [
+      'Review Management',
+      'Approval Workflows',
+      'Feedback Integration',
+      'Continuous Improvement'
     ],
-    stack: ['Figma Tokens', 'Radix UI', 'Framer Motion', 'Storybook'],
     icon_path: 'M3 3h8v8H3zM17 3h8v8h-8zM3 17h8v8H3zM17 17h8v8h-8z'
   },
   {
     number: '03',
     theme: 'fullstack',
-    title: 'Full-Stack JavaScript',
+    title: 'Controlled Versioning',
     description:
-      'High-throughput distributed backend runtimes using Node.js and Bun, end-to-end type safety with tRPC, Redis cache cascades, resilient PostgreSQL, and live WebSockets.',
-    features: [
-      'End-to-End Type Safety (tRPC & Connect)',
-      'Event-Driven Distributed Microservices',
-      'Edge Cache Sharding (Redis & Neon DB)'
-    ],
-    stack: ['Bun / Node', 'PostgreSQL', 'Redis', 'tRPC'],
+      'Project success extends past the first deployment. Ensuring snapshots are created anytime something new is introduced is preventative maintenance.',
+    features: ['Versioned snapshots', 'Traceable change history', 'Reliable rollback and recovery'],
+    stack: ['Version Control', 'Release Management', 'Backup and Recovery', 'Deployment Tracking'],
     icon_path: 'M25 7c0 3-22 7-22 0s22-7 22 0ZM3 7v14c0 7 22 7 22 0V7M3 14c0 7 22 7 22 0'
   }
 ];
@@ -91,15 +94,14 @@ export default function EngineeringPillars({ slice, index }: EngineeringPillarsP
                 field={slice.primary.description}
                 fallback={
                   <p>
-                    My engineering philosophy revolves around eradicating siloes. I balance
-                    hyper-tactile spatial frontends with resilient event-driven backends and
-                    automated design systems.
+                    My engineering philosophy revolves around eradicating ambiguity. I balance
+                    hyper-tactical and distributive tasks with resilient and predictable outcomes.
                   </p>
                 }
               />
             </div>
           </div>
-          <p className="engineering-pillars__status">// STATUS: COMPILED_L6</p>
+          <p className="engineering-pillars__status">// STATUS: IN PROGRESS</p>
         </header>
 
         <div className="engineering-pillars__cards">
@@ -143,7 +145,6 @@ export default function EngineeringPillars({ slice, index }: EngineeringPillarsP
                     )}
                   </ul>
                   <div className="engineering-pillars__stack">
-                    <p className="engineering-pillars__stack-label">STACK MATRIX</p>
                     <ul className="engineering-pillars__chips">
                       {pillar.stack.map(
                         /** Render a noninteractive stack label. */

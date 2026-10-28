@@ -100,7 +100,8 @@ Components define the JSX and presentation; they do not create URL routes.
 
 `components/HomePage.tsx` receives the fetched page as a prop, renders the fixed
 `HomeHero` component, and uses `SliceZone` to render any subsequent slices. Add shared UI such as navigation,
-buttons, cards, and page layouts here.
+buttons, cards, and page layouts here. `components/SiteFooter.tsx` renders the
+footer after the homepage's main content.
 
 ### `customtypes/` — Prismic page and content field definitions
 
@@ -249,6 +250,18 @@ and mobile/desktop sizes. `.section-shell__eyebrow` is shared with Engineering
 Pillars, and `.section-shell__panel` shares static panel grain with AI Architecture.
 Contact layout styles live in `app/contact.css`. The layout stacks below 1024px;
 the name/email fields sit side by side from 768px.
+
+## Footer
+
+`components/SiteFooter.tsx` renders the fixed footer after the homepage content.
+The copyright uses **NicholasByDesign** and calculates the current year on each
+page request in `America/Los_Angeles`, matching the availability line's timezone.
+No annual copy edit or deployment is required to advance the year.
+
+The footer reuses shared gutters, container sizing, headline typography for the
+brand, and JetBrains Mono label typography for the status and copyright. It stacks
+and wraps on smaller screens, then uses a wrapping horizontal layout from 1024px.
+Its styles live in `app/footer.css`. “All systems nominal” is fixed design copy.
 
 ## Prismic commands and content fetching
 

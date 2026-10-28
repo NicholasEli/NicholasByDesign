@@ -14,6 +14,7 @@ import './hero.css';
 import './pillars.css';
 import './architecture.css';
 import './contact.css';
+import './footer.css';
 
 const headline_font = Plus_Jakarta_Sans({
   subsets: ['latin'],

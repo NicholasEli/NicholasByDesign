@@ -69,9 +69,8 @@ export default function HomeHero({ description }: HomeHeroProps) {
                 field={description}
                 fallback={
                   <p>
-                    Bridging the chasm between visionary spatial interfaces, robust full-stack
-                    engineering, and autonomous multi-agent intelligence to deploy mission-critical
-                    solutions at enterprise scale.
+                    Bridging the chasm between spatial interfaces, robust full-stack engineering,
+                    and autonomous intelligence to deploy rapid solutions at scale.
                   </p>
                 }
               />
