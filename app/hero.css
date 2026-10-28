@@ -2,36 +2,22 @@
  * Homepage-only hero layout, neon accents, and decorative motion.
  */
 .home-hero {
-  --hero-cyan: #00f5d4;
-  --hero-magenta: #ff008c;
-  --hero-muted: #9ca0b9;
-  --hero-tag: #555f83;
+  --hero-cyan: var(--color-neon-cyan);
+  --hero-magenta: var(--color-neon-magenta);
+  --hero-muted: var(--color-section-muted);
 
   min-height: 100svh;
-  padding: clamp(2rem, 3vw, 3.5rem) clamp(1.5rem, 5.3vw, 6.25rem) 2rem;
+  padding-block: clamp(2rem, 3vw, 3.5rem) 2rem;
   color: #fff;
   background-color: #000;
   overflow: clip;
 }
 
 .home-hero__frame {
-  max-width: 1720px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   gap: 1rem;
-  margin: 0 auto;
-}
-
-.home-hero__tag {
-  display: block;
-  font-family: var(--font-handwritten);
-  font-size: clamp(1.5rem, 1.8vw, 2rem);
-  font-weight: 400;
-  line-height: 1.25;
-  color: var(--hero-tag);
-  user-select: none;
-  opacity: 0.5;
 }
 
 .home-hero__tag--opening {

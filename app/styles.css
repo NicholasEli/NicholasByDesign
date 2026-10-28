@@ -22,6 +22,15 @@
   --color-text-on-accent: #2e1065;
   --color-focus: var(--color-tertiary);
 
+  /* Shared section accents; the global brand palette stays independent. */
+  --color-neon-cyan: #00f5d4;
+  --color-neon-magenta: #ff008c;
+  --color-neon-violet: #9855ff;
+  --color-section-muted: #9ca0b9;
+  --color-section-tag: #555f83;
+  --section-max-width: 1720px;
+  --section-gutter: clamp(1.5rem, 5.3vw, 6.25rem);
+
   /* Font files are loaded and self-hosted by next/font in the root layout. */
   --font-headline: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
   --font-body: var(--font-inter), 'Inter', sans-serif;
@@ -156,4 +165,25 @@ video {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* Shared section framing and decorative code annotations. */
+.section-shell {
+  padding-inline: var(--section-gutter);
+}
+
+.section-shell__container {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+}
+
+.section-shell__tag {
+  display: block;
+  font-family: var(--font-handwritten);
+  font-size: clamp(1.5rem, 1.8vw, 2rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-section-tag);
+  user-select: none;
+  opacity: 0.5;
 }

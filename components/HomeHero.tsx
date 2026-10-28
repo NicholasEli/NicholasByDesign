@@ -25,9 +25,12 @@ export default function HomeHero({ description }: HomeHeroProps) {
   const current_quarter = Math.ceil(current_month / 3);
 
   return (
-    <section className="home-hero" aria-labelledby="home-hero-title">
-      <div className="home-hero__frame">
-        <span className="home-hero__tag home-hero__tag--opening" aria-hidden="true">
+    <section className="section-shell home-hero" aria-labelledby="home-hero-title">
+      <div className="section-shell__container home-hero__frame">
+        <span
+          className="section-shell__tag home-hero__tag home-hero__tag--opening"
+          aria-hidden="true"
+        >
           {'<body>'}
         </span>
 
@@ -92,8 +95,8 @@ export default function HomeHero({ description }: HomeHeroProps) {
         </div>
 
         <div className="home-hero__closing" aria-hidden="true">
-          <span className="home-hero__tag">{'</body>'}</span>
-          <span className="home-hero__tag">{'</html>'}</span>
+          <span className="section-shell__tag home-hero__tag">{'</body>'}</span>
+          <span className="section-shell__tag home-hero__tag">{'</html>'}</span>
         </div>
       </div>
     </section>

@@ -11,6 +11,7 @@ import { repository_name } from '../prismicio';
 
 import './styles.css';
 import './hero.css';
+import './pillars.css';
 
 const headline_font = Plus_Jakarta_Sans({
   subsets: ['latin'],

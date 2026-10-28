@@ -124,6 +124,7 @@ reorder these sections in Prismic's Page Builder.
 
 - `slices/IntroHero/model.json`: The existing IntroHero model pulled from Prismic and preserved unchanged.
 - `slices/IntroHero/index.tsx`: The generated scaffold for that model; it is separate from the fixed hero.
+- `slices/EngineeringPillars/index.tsx`: The reorderable engineering disciplines section, with an editable heading and introduction and fixed skill cards.
 - `slices/Editorial/index.tsx`: The preserved Editorial implementation, currently unregistered because its model no longer exists in Prismic.
 - `slices/index.ts`: A generated mapping from slice API IDs to React components, consumed by `SliceZone`.
 
@@ -186,6 +187,26 @@ included. Styles use mobile-first base declarations. At `min-width: 481px`,
 tablet typography and spacing are applied; at `min-width: 1024px`, the hero
 switches to the desktop two-column layout. On smaller screens the wireframe
 sits behind the text as a decorative layer.
+
+## Engineering pillars
+
+The **EngineeringPillars** slice (`engineering_pillars`) is available on Home Page.
+Its first instance appears directly below the fixed hero. Editors can reorder or
+remove it in the Slice Zone. Edit **Heading** (one H2) and **Description** (one
+paragraph), then publish. Empty fields use the supplied mockup copy.
+
+The eyebrow, compiled status, three cards, icons, feature lists, and stack chips
+are maintained in React. Headings use Plus Jakarta Sans, prose uses Inter, and
+labels/chips use JetBrains Mono. The decorative section tag uses La Belle Aurore.
+Cards stack on mobile and tablet and form three equal columns at `min-width: 1024px`.
+The section adds no animation or interactive card behavior.
+
+`app/styles.css` owns shared `--color-neon-*` accents, muted/tag colors,
+`--section-max-width`, and `--section-gutter`. Use `.section-shell` for horizontal
+gutters, `.section-shell__container` for centered content, and
+`.section-shell__tag` for decorative code annotations. These styles are shared by
+the hero and pillars; the global brand palette is unchanged. Pillar card styling
+lives in `app/pillars.css`, while hero-specific styling stays in `app/hero.css`.
 
 ## Prismic commands and content fetching
 
