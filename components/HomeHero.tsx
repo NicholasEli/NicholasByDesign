@@ -27,18 +27,20 @@ export default function HomeHero({ description }: HomeHeroProps) {
   return (
     <section className="section-shell home-hero" id="top" aria-labelledby="home-hero-title">
       <div className="section-shell__container home-hero__frame">
-        <span
-          className="section-shell__tag home-hero__tag home-hero__tag--opening"
-          aria-hidden="true"
-        >
-          {'<html>'}
-        </span>
-        <span
-          className="section-shell__tag home-hero__tag home-hero__tag--opening"
-          aria-hidden="true"
-        >
-          {'<body>'}
-        </span>
+        <div>
+          <span
+            className="section-shell__tag home-hero__tag home-hero__tag--opening"
+            aria-hidden="true"
+          >
+            {'<html>'}
+          </span>
+          <span
+            className="section-shell__tag home-hero__tag home-hero__tag--opening"
+            aria-hidden="true"
+          >
+            {'<body>'}
+          </span>
+        </div>
 
         <div className="home-hero__layout">
           <div className="home-hero__content">
