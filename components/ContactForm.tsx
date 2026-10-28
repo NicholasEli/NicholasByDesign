@@ -120,7 +120,7 @@ export default function ContactForm({ recipient }: ContactFormProps) {
 
       <div className="contact-section__actions">
         <button className="contact-section__send" type="submit">
-          OPEN EMAIL DRAFT
+          BEGIN TRANSMISSION
         </button>
       </div>
     </form>
