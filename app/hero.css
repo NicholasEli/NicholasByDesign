@@ -19,6 +19,10 @@
   gap: 1rem;
 }
 
+.home-hero__tag--opening {
+  margin: 0;
+}
+
 .home-hero__tag--opening + .home-hero__tag--opening {
   margin: 0 0 2rem -0.5rem;
 }
