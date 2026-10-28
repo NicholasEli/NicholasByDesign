@@ -64,17 +64,29 @@ export default function Contact({ slice, index, slices }: ContactProps) {
                 <dt>Email:</dt>
                 <dd className="contact-section__value contact-section__value--email">
                   <a
-                    title="Email nicholas@bydesign@gmail.com"
-                    href="mailto:nicholas@bydesign@gmail.com"
+                    title="Email nicholasbydesign@gmail.com"
+                    href="mailto:nicholasbydesign@gmail.com"
                   >
-                    nicholas@bydesign@gmail.com
+                    nicholasbydesign@gmail.com
                   </a>
                 </dd>
               </div>
               <div className="contact-section__detail">
                 <dt>LinkedIn:</dt>
                 <dd className="contact-section__value">
-                  <a title="Nicholas Eli" href="https://www.linkedin.com/in/nicholasbydesign/">
+                  <a
+                    title="Nicholas Eli"
+                    href="https://www.linkedin.com/in/nicholasbydesign/"
+                    target="_blank"
+                  >
+                    Nicholas Eli
+                  </a>
+                </dd>
+              </div>
+              <div className="contact-section__detail">
+                <dt>Github:</dt>
+                <dd className="contact-section__value">
+                  <a title="Github" href="https://github.com/NicholasEli/" target="_blank">
                     Nicholas Eli
                   </a>
                 </dd>

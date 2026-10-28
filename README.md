@@ -260,15 +260,35 @@ the name/email fields sit side by side from 768px.
 ## Global navigation
 
 `components/SiteNavigation.tsx` renders a fixed left rail from the root layout,
-shared by public pages. It contains the static neon N mark, five main section
-controls, and three utility controls. Home is highlighted as the reference's
-default visual state. All controls have accessible names and keyboard focus
-styles; destinations, scrolling, and other button actions are not connected yet.
+shared by public pages. It contains the neon N refresh button, four main section
+links and two social profile links. The primary links smoothly scroll to Home
+(`#top`), Multidisciplinary Pillars (`#pillars`), AI-Augmented Architecture
+(`#ai_architecture`), and Contact (`#contact`). Reduced-motion preferences use
+automatic scrolling. From another public page, the links navigate to the
+corresponding homepage section. The highlighted item follows the URL fragment,
+including browser Back/Forward navigation. Clicking the N logo performs a full
+refresh of the current page.
 
-`app/navigation.css` reserves 56px beside the content on small screens and 96px
-from `min-width: 1024px`. The compact version hides the brand caption. The rail
+The secondary links open [LinkedIn](https://www.linkedin.com/in/nicholasbydesign/)
+and [GitHub](https://github.com/NicholasEli) in new tabs. The LinkedIn URL matches
+Contact, and the GitHub URL uses this repository's owner. All links and the
+refresh button have accessible names and visible keyboard focus states.
+
+The Pillars icon uses the supplied
+[house of three pillars SVG](https://www.svgrepo.com/svg/148749/house-of-three-pillars).
+Architecture uses the Process Improvement card's icon. Social icons come from
+[Bootstrap Icons](https://github.com/twbs/icons), with the MIT license included in
+`public/licenses/bootstrap-icons.txt`.
+
+`app/navigation.css` reserves 56px beside the content on small screens and 80px
+from `min-width: 1024px`. The rail
 scrolls independently on short screens so every control remains reachable.
 Page typography continues to use the existing shared styles.
+The Next.js development badge is placed at the bottom-right to keep the bottom
+social link accessible in local development.
+
+Pillars and architecture keep their canonical anchor on the first matching slice
+regardless of Slice Zone order. Repeated instances receive unique IDs.
 
 The isolated `/slice-simulator` route omits the rail and its content offset so
 editor previews keep their full canvas width. API handlers are unaffected.

@@ -32,11 +32,17 @@
 }
 
 .site-navigation__brand {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
   align-items: center;
   gap: 0.65rem;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 .site-navigation__logo {
@@ -93,12 +99,14 @@
   align-items: center;
   justify-content: center;
   padding: 0;
+  text-decoration: none;
   color: inherit;
   background-color: transparent;
   border: 0;
-  cursor: default;
+  cursor: pointer;
 }
 
+.site-navigation__brand:focus-visible,
 .site-navigation__button:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 2px;
@@ -109,13 +117,21 @@
   color: var(--color-neon-cyan);
 }
 
-.site-navigation__button svg {
+.site-navigation__button:hover {
+  color: var(--color-neon-cyan);
+}
+
+.site-navigation__icon {
   width: 1.5rem;
   height: 1.5rem;
   stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: square;
   stroke-linejoin: miter;
+}
+
+.site-navigation__icon--filled {
+  stroke: none;
 }
 
 @media (min-width: 1024px) {

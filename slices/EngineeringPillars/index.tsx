@@ -87,13 +87,19 @@ const pillars = [
  * @param props - The generated slice content and its position in the Slice Zone.
  * @returns An accessible, responsive section with editable introductory copy.
  */
-export default function EngineeringPillars({ slice, index }: EngineeringPillarsProps) {
+export default function EngineeringPillars({ slice, index, slices }: EngineeringPillarsProps) {
   const heading_id = useId();
+  const first_pillars_index = slices.findIndex(
+    /** Keep the navigation anchor on the first pillars instance after reordering. */
+    function find_pillars(current_slice) {
+      return current_slice.slice_type === 'engineering_pillars';
+    }
+  );
 
   return (
     <section
       className="section-shell engineering-pillars"
-      id={index === 0 ? 'pillars' : `pillars-${slice.id}`}
+      id={index === first_pillars_index ? 'pillars' : `pillars-${heading_id}`}
       aria-labelledby={heading_id}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}

@@ -87,12 +87,19 @@ const architecture_features = [
  * @param props - The generated Prismic slice content.
  * @returns A static, responsive architecture section.
  */
-export default function AiArchitecture({ slice }: AiArchitectureProps) {
+export default function AiArchitecture({ slice, index, slices }: AiArchitectureProps) {
   const heading_id = useId();
+  const first_architecture_index = slices.findIndex(
+    /** Keep the navigation anchor on the first architecture instance after reordering. */
+    function find_architecture(current_slice) {
+      return current_slice.slice_type === 'ai_architecture';
+    }
+  );
 
   return (
     <section
       className="section-shell ai-architecture"
+      id={index === first_architecture_index ? 'ai_architecture' : `ai_architecture-${heading_id}`}
       aria-labelledby={heading_id}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}

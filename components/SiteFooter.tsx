@@ -26,8 +26,7 @@ export default function SiteFooter() {
           </span>
         </div>
         <p className="site-footer__copyright">
-          © {current_year} NicholasByDesign. Crafted with architectural rigor &amp; machine
-          intelligence.
+          © {current_year} NicholasByDesign. Crafted with architectural rigor &amp; caffeine.
         </p>
       </div>
     </footer>
