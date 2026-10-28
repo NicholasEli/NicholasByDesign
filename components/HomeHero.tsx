@@ -31,6 +31,12 @@ export default function HomeHero({ description }: HomeHeroProps) {
           className="section-shell__tag home-hero__tag home-hero__tag--opening"
           aria-hidden="true"
         >
+          {'<html>'}
+        </span>
+        <span
+          className="section-shell__tag home-hero__tag home-hero__tag--opening"
+          aria-hidden="true"
+        >
           {'<body>'}
         </span>
 
