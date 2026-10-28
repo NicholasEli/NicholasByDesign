@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomePageDocumentDataSlicesSlice = never
+type HomePageDocumentDataSlicesSlice = EngineeringPillarsSlice
 
 /**
  * Content for Home Page documents
@@ -120,6 +120,54 @@ export type HomePageDocument<Lang extends string = string> = prismic.PrismicDocu
 export type AllDocumentTypes = HomePageDocument;
 
 /**
+ * Primary content in *EngineeringPillars → Default → Primary*
+ */
+export interface EngineeringPillarsSliceDefaultPrimary {
+	/**
+	 * Heading field in *EngineeringPillars → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: engineering_pillars.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Description field in *EngineeringPillars → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: engineering_pillars.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for EngineeringPillars Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type EngineeringPillarsSliceDefault = prismic.SharedSliceVariation<"default", Simplify<EngineeringPillarsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *EngineeringPillars*
+ */
+type EngineeringPillarsSliceVariation = EngineeringPillarsSliceDefault
+
+/**
+ * EngineeringPillars Shared Slice
+ *
+ * - **API ID**: `engineering_pillars`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type EngineeringPillarsSlice = prismic.SharedSlice<"engineering_pillars", EngineeringPillarsSliceVariation>;
+
+/**
  * Default variation for IntroHero Slice
  *
  * - **API ID**: `default`
@@ -161,6 +209,10 @@ declare module "@prismicio/client" {
 			HomePageDocumentData,
 			HomePageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			EngineeringPillarsSlice,
+			EngineeringPillarsSliceDefaultPrimary,
+			EngineeringPillarsSliceVariation,
+			EngineeringPillarsSliceDefault,
 			IntroHeroSlice,
 			IntroHeroSliceVariation,
 			IntroHeroSliceDefault
