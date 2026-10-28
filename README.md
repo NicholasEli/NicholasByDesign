@@ -1,5 +1,9 @@
 # NicholasByDesign
 
+## TODO
+
+-
+
 Next.js App Router, React, Prismic, and Netlify.
 
 ## How Prismic content fits together
