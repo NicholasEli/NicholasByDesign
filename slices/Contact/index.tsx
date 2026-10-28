@@ -1,5 +1,5 @@
 /**
- * Presentational contact slice with editable introductory copy and native draft controls.
+ * Contact slice with editable introductory copy and an email draft form.
  */
 import React, { useId } from 'react';
 
@@ -7,17 +7,18 @@ import type { Content } from '@prismicio/client';
 import { PrismicRichText } from '@prismicio/react';
 import type { SliceComponentProps } from '@prismicio/react';
 
+import ContactForm from '@/components/ContactForm';
+
 export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 
 /**
- * Render the contact layout without submitting, storing, or transmitting entered data.
+ * Render the contact introduction, fixed details, and mail application draft form.
  * @param props - The generated contact slice and its position among the page's slices.
- * @returns The editable introduction, fixed contact details, and unconnected dispatch panel.
+ * @returns The editable introduction, fixed contact details, and email draft form.
  */
 export default function Contact({ slice, index, slices }: ContactProps) {
   const control_id = useId();
   const heading_id = `${control_id}-heading`;
-  const terminal_id = `${control_id}-terminal`;
   const first_contact_index = slices.findIndex(
     /** Find the first contact instance so the hero anchor has one unique target. */
     function find_contact(current_slice) {
@@ -110,96 +111,7 @@ export default function Contact({ slice, index, slices }: ContactProps) {
             </div>
           </div>
 
-          <div
-            className="section-shell__panel contact-section__panel"
-            role="group"
-            aria-labelledby={terminal_id}
-          >
-            <div className="contact-section__panel-header">
-              <h3 className="contact-section__terminal-title" id={terminal_id}>
-                TERMINAL DISPATCH
-              </h3>
-              <p className="contact-section__encryption">ENC: TLS 1.3 // 256-BIT</p>
-            </div>
-
-            <div className="contact-section__fields">
-              <div className="contact-section__identity">
-                <div className="contact-section__field">
-                  <label className="contact-section__label" htmlFor={`${control_id}-name`}>
-                    YOUR NAME / ORG
-                  </label>
-                  <input
-                    className="contact-section__input"
-                    id={`${control_id}-name`}
-                    name="name"
-                    type="text"
-                    autoComplete="name"
-                    placeholder="Alex Rivera, VP Eng"
-                  />
-                </div>
-                <div className="contact-section__field">
-                  <label className="contact-section__label" htmlFor={`${control_id}-email`}>
-                    EMAIL ADDRESS
-                  </label>
-                  <input
-                    className="contact-section__input"
-                    id={`${control_id}-email`}
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="alex@acmecorp.com"
-                  />
-                </div>
-              </div>
-
-              <div className="contact-section__field">
-                <label className="contact-section__label" htmlFor={`${control_id}-scope`}>
-                  SCOPE
-                </label>
-                <div className="contact-section__select-wrap">
-                  <select
-                    className="contact-section__input contact-section__input--select"
-                    id={`${control_id}-scope`}
-                    name="scope"
-                    defaultValue="frontend"
-                  >
-                    <option value="frontend">Frontend UI/UX</option>
-                    <option value="frontend">Mobile Development</option>
-                    <option value="fullstack">SaaS Integration</option>
-                    <option value="ai">Agentic AI Pipelines</option>
-                    <option value="advisory">General Inquery</option>
-                  </select>
-                  <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
-                    <path d="m5 7 5 5 5-5" />
-                  </svg>
-                </div>
-              </div>
-
-              <div className="contact-section__field">
-                <label className="contact-section__label" htmlFor={`${control_id}-details`}>
-                  DETAILS
-                </label>
-                <textarea
-                  className="contact-section__input contact-section__input--textarea"
-                  id={`${control_id}-details`}
-                  name="details"
-                  rows={5}
-                  placeholder="Briefly describe your systems, timeline, or engineering objectives..."
-                />
-              </div>
-            </div>
-
-            <div className="contact-section__actions">
-              <button
-                className="contact-section__send"
-                type="button"
-                disabled
-                title="Transmission sending is not connected yet"
-              >
-                SEND TRANSMISSION
-              </button>
-            </div>
-          </div>
+          <ContactForm recipient="nicholasbydesign@gmail.com" />
         </div>
       </div>
     </section>

@@ -129,7 +129,7 @@
   color: var(--color-neon-cyan);
 }
 
-.contact-section__encryption {
+.contact-section__mail-hint {
   margin: 0;
   font-family: var(--font-label);
   font-size: clamp(0.625rem, 0.85vw, 1rem);
@@ -254,7 +254,7 @@
   background-color: transparent;
   border: 2px solid currentColor;
   box-shadow: 0 0 20px #00f5d420;
-  cursor: not-allowed;
+  cursor: pointer;
   opacity: 1;
 }
 

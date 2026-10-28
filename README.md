@@ -242,11 +242,15 @@ use the mockup's “Let's Integrate.” title and introductory paragraph. The fi
 Contact instance gets `id="contact"`, even when reordered, so the hero button
 scrolls to it. Additional instances get unique IDs.
 
-The contact details, fingerprint, location/time, advisory note, encryption label,
-field labels, and scope choices are fixed mockup copy. The panel is presentational:
-name, email, scope, details, and NDA controls can be edited locally, but the Send
-Transmission button is disabled. There is no form submission, request, email
-integration, storage, or custom encryption functionality.
+The contact details, advisory note, and form labels are fixed in React.
+`components/ContactForm.tsx` collects **name**, **email address**, **subject**, and
+**message**, with native required-field and email validation. **Open Email Draft**
+opens the visitor's configured mail application, addressed to
+`nicholasbydesign@gmail.com`. The subject becomes the email subject; name, email,
+and message become its body. Special characters and line breaks are URL-encoded.
+The visitor reviews the draft and presses Send in their mail application. This
+requires a configured `mailto:` handler; the website does not send or store the
+entered information. Form values remain available after opening the draft.
 
 Contact uses the existing `.section-shell__heading` and
 `.section-shell__description` styles without its own heading/body scale. Form
