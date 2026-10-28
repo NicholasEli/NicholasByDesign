@@ -9,7 +9,6 @@
   min-height: 100svh;
   padding-block: clamp(2rem, 3vw, 3.5rem) 2rem;
   color: #fff;
-  background-color: #000;
   overflow: clip;
 }
 
@@ -191,11 +190,19 @@
   width: 85%;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: calc(50% + var(--site-navigation-width) / 2);
   transform: translate(-50%, -50%);
   z-index: 1;
   flex: none;
   align-self: center;
+  opacity: 0.25;
+}
+
+@media (min-width: 1024px) {
+  .home-hero__art {
+    left: 50%;
+    opacity: 1;
+  }
 }
 
 .home-hero__wireframe {

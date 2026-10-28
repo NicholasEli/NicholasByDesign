@@ -34,6 +34,18 @@
   --section-max-width: 1720px;
   --section-gutter: clamp(1.5rem, 5.3vw, 6.25rem);
 
+  /* One continuous vertical color field across the complete page content. */
+  --site-background-gradient: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    var(--color-primary) 36%,
+    #6858d9 48%,
+    #32bfc3 65%,
+    #ad5c9e 82%,
+    var(--color-neon-magenta) 100%
+  );
+  --site-background-tint: rgb(9 13 22 / 72%);
+
   /* Font files are loaded and self-hosted by next/font in the root layout. */
   --font-headline: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
   --font-body: var(--font-inter), 'Inter', sans-serif;
@@ -86,6 +98,20 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-background);
+}
+
+section {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.site-layout__content {
+  min-height: 100svh;
+  background-color: var(--color-background);
+  background-image:
+    linear-gradient(var(--site-background-tint), var(--site-background-tint)),
+    var(--site-background-gradient);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 h1,

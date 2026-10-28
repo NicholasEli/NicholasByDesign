@@ -174,8 +174,8 @@ Engagements”, for example. It updates on the next page request after a quarter
 
 The title uses Plus Jakarta Sans, supporting copy uses Inter, labels use
 JetBrains Mono, and decorative HTML tags use La Belle Aurore. `app/hero.css`
-contains the responsive layout and hero-scoped neon colors; other pages retain
-the global palette. The SVG network forms an extruded **N** without filled letter
+contains the responsive layout and hero-scoped neon colors. The shared page
+background is defined in `app/styles.css`. The SVG network forms an extruded **N** without filled letter
 faces. A permanent outline, lattice rails, and crossbars keep it recognizable;
 local cell diagonals randomly reconnect about every 0.98 seconds with fading
 lines. Cyan, violet, and magenta outline accents and colored nodes add depth.
@@ -407,6 +407,16 @@ configured.
 ### Global colors and typography
 
 `app/styles.css` is imported by the root layout and applies to every page.
+
+The main content wrapper uses one continuous vertical purple → blue → cyan →
+magenta gradient based on the supplied background reference. It spans the full
+page height through the footer, rather than restarting in each section. The
+hero, content sections, and footer are transparent over it; navigation and card
+surfaces retain their dark colors. `--site-background-gradient` defines the color
+stops and `--site-background-tint` adds a 72% dark overlay for readable foreground
+text. Lower the tint's opacity for a more vivid background. This is CSS-only and
+does not load the reference image as an asset.
+
 Use its CSS custom properties when styling components:
 
 | Token               | Value     | Usage                           |

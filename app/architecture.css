@@ -3,7 +3,6 @@
  */
 .ai-architecture {
   padding-block: clamp(2rem, 3vw, 3.5rem) clamp(4rem, 8vw, 9rem);
-  background-color: #000;
 }
 
 .ai-architecture__tag {
@@ -22,8 +21,14 @@
 .ai-architecture__marker {
   width: clamp(8rem, 16vw, 17.5rem);
   height: clamp(1.25rem, 2.15vw, 2.375rem);
-  background-color: var(--color-neon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 245, 212, 0.1);
   border-radius: 999px;
+  border: 1px solid #00f5d4;
+  color: #00f5d4;
+  font-size: 0.75rem;
 }
 
 .ai-architecture__heading {

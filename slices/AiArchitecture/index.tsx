@@ -110,7 +110,9 @@ export default function AiArchitecture({ slice, index, slices }: AiArchitectureP
         </span>
 
         <header className="ai-architecture__header">
-          <span className="ai-architecture__marker" aria-hidden="true" />
+          <span className="ai-architecture__marker" aria-hidden="true">
+            INTEGRATE ME
+          </span>
           <div className="section-shell__heading ai-architecture__heading" id={heading_id}>
             <PrismicRichText
               field={slice.primary.heading}

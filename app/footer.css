@@ -8,7 +8,7 @@
   font-weight: 400;
   line-height: var(--line-height-section-body);
   color: var(--color-section-tag);
-  background-color: var(--color-neutral);
+  background-color: #07080e;
 }
 
 .site-footer__layout {
