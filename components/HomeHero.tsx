@@ -34,9 +34,6 @@ export default function HomeHero({ description }: HomeHeroProps) {
         <div className="home-hero__layout">
           <div className="home-hero__content">
             <div className="home-hero__heading-wrap">
-              <span className="home-hero__tag home-hero__tag--heading" aria-hidden="true">
-                {'<h1>'}
-              </span>
               <h1 className="home-hero__title" id="home-hero-title">
                 <span className="home-hero__line">Hi,</span>
                 <span className="home-hero__line">
@@ -75,15 +72,6 @@ export default function HomeHero({ description }: HomeHeroProps) {
                   </p>
                 }
               />
-            </div>
-
-            <div className="home-hero__action">
-              <a className="home-hero__contact" href="#contact">
-                Integrate me
-              </a>
-              <span className="home-hero__tag home-hero__tag--heading-end" aria-hidden="true">
-                {'</h1>'}
-              </span>
             </div>
 
             <p className="home-hero__availability">

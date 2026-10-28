@@ -16,6 +16,10 @@
 
 .home-hero__frame {
   max-width: 1720px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
   margin: 0 auto;
 }
 
@@ -200,6 +204,9 @@
 .home-hero__art {
   width: 85%;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   flex: none;
   align-self: center;
@@ -283,6 +290,9 @@
   .home-hero__art {
     width: 100%;
     position: static;
+    top: unset;
+    left: unset;
+    transform: unset;
     z-index: auto;
     flex: 1 1 40%;
     align-self: auto;
