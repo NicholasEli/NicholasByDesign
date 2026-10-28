@@ -1,0 +1,16 @@
+{
+  "description": "IntroHero",
+  "id": "intro_hero",
+  "name": "IntroHero",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "...",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "version": "initial"
+    }
+  ]
+}

@@ -5,19 +5,15 @@
     "Main": {
       "slices": {
         "config": {
-          "choices": {
-            "editorial": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         },
         "fieldset": "Slice Zone",
         "type": "Slices"
       },
-      "heading": {
+      "hero_description": {
         "config": {
-          "label": "Heading",
-          "single": "heading1"
+          "label": "Hero description",
+          "single": "paragraph"
         },
         "type": "StructuredText"
       }
