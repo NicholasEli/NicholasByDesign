@@ -31,6 +31,7 @@
   line-height: 1.25;
   color: var(--hero-tag);
   user-select: none;
+  opacity: 0.5;
 }
 
 .home-hero__tag--opening {
