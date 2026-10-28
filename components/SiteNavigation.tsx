@@ -83,26 +83,73 @@ export default function SiteNavigation() {
   const [active_section, setActiveSection] = useState('top');
 
   useEffect(
-    function track_section_hash() {
-      /** Reflect native anchor navigation and browser Back/Forward in the highlighted item. */
-      function sync_active_section() {
-        const section_id = window.location.hash.slice(1);
-        const known_section = navigation_groups[0].items.some(
-          /** Check whether the URL fragment matches one of the page sections. */
-          function matches_section(item) {
-            return item.section_id === section_id;
+    function track_visible_section() {
+      if (pathname !== '/') return;
+
+      let animation_frame: number | null = null;
+
+      /** Highlight the section crossing the upper third of the viewport, in actual page order. */
+      function sync_visible_section() {
+        animation_frame = null;
+        const activation_line = window.innerHeight / 3;
+        let next_section = 'top';
+        let active_top = -Infinity;
+        let final_section = 'top';
+        let final_top = -Infinity;
+
+        for (const item of navigation_groups[0].items) {
+          if (!item.section_id) continue;
+
+          const section = document.getElementById(item.section_id);
+          if (!section) continue;
+
+          const section_top = section.getBoundingClientRect().top;
+
+          if (section_top > final_top) {
+            final_section = item.section_id;
+            final_top = section_top;
           }
-        );
-        setActiveSection(known_section ? section_id : 'top');
+
+          if (section_top <= activation_line && section_top > active_top) {
+            next_section = item.section_id;
+            active_top = section_top;
+          }
+        }
+
+        const at_page_end =
+          window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+
+        if (at_page_end) next_section = final_section;
+        if (window.scrollY <= 0) next_section = 'top';
+
+        setActiveSection(next_section);
         return;
       }
 
-      sync_active_section();
-      window.addEventListener('hashchange', sync_active_section);
+      /** Coalesce scroll and layout changes into one measurement per animation frame. */
+      function schedule_section_update() {
+        if (animation_frame !== null) return;
 
-      /** Release the URL listener when the navigation path changes or unmounts. */
-      return function cleanup_section_hash() {
-        window.removeEventListener('hashchange', sync_active_section);
+        animation_frame = window.requestAnimationFrame(sync_visible_section);
+        return;
+      }
+
+      const layout_observer = new ResizeObserver(schedule_section_update);
+      layout_observer.observe(document.body);
+      schedule_section_update();
+      window.addEventListener('scroll', schedule_section_update, { passive: true });
+      window.addEventListener('resize', schedule_section_update);
+      window.addEventListener('hashchange', schedule_section_update);
+
+      /** Release viewport listeners, layout observation, and pending work on route changes. */
+      return function cleanup_visible_section() {
+        window.removeEventListener('scroll', schedule_section_update);
+        window.removeEventListener('resize', schedule_section_update);
+        window.removeEventListener('hashchange', schedule_section_update);
+        layout_observer.disconnect();
+
+        if (animation_frame !== null) window.cancelAnimationFrame(animation_frame);
+        return;
       };
     },
     [pathname]

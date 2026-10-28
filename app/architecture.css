@@ -60,9 +60,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: clamp(1.25rem, 2vw, 2.25rem);
+  gap: 1.25rem;
   isolation: isolate;
-  padding: clamp(1.25rem, 2.7vw, 3rem);
+  padding: 1.25rem;
   list-style: none;
   background-color: var(--color-section-panel);
   border: 1px solid var(--color-section-border);

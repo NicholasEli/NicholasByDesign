@@ -273,9 +273,14 @@ links and two social profile links. The primary links smoothly scroll to Home
 (`#top`), Multidisciplinary Pillars (`#pillars`), AI-Augmented Architecture
 (`#ai_architecture`), and Contact (`#contact`). Reduced-motion preferences use
 automatic scrolling. From another public page, the links navigate to the
-corresponding homepage section. The highlighted item follows the URL fragment,
-including browser Back/Forward navigation. Clicking the N logo performs a full
-refresh of the current page.
+corresponding homepage section. The highlighted item and `aria-current` follow
+the visible section while scrolling in either direction, including anchor clicks
+and browser Back/Forward navigation. A section becomes active as its top crosses
+the upper third of the viewport; the last section remains active at the bottom
+of the page. Tracking follows the actual section positions, including reordered
+slices, and updates after resizing or layout changes. Manual scrolling does not
+change the URL fragment or add browser history entries. Clicking the N logo
+performs a full refresh of the current page.
 
 The secondary links open [LinkedIn](https://www.linkedin.com/in/nicholasbydesign/)
 and [GitHub](https://github.com/NicholasEli) in new tabs. The LinkedIn URL matches
