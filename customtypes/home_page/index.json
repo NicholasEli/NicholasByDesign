@@ -11,6 +11,9 @@
             },
             "ai_architecture": {
               "type": "SharedSlice"
+            },
+            "contact": {
+              "type": "SharedSlice"
             }
           }
         },

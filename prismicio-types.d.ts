@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomePageDocumentDataSlicesSlice = EngineeringPillarsSlice | AiArchitectureSlice
+type HomePageDocumentDataSlicesSlice = EngineeringPillarsSlice | AiArchitectureSlice | ContactSlice
 
 /**
  * Content for Home Page documents
@@ -168,6 +168,54 @@ type AiArchitectureSliceVariation = AiArchitectureSliceDefault
 export type AiArchitectureSlice = prismic.SharedSlice<"ai_architecture", AiArchitectureSliceVariation>;
 
 /**
+ * Primary content in *Contact → Default → Primary*
+ */
+export interface ContactSliceDefaultPrimary {
+	/**
+	 * Heading field in *Contact → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Description field in *Contact → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ContactSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactSlice = prismic.SharedSlice<"contact", ContactSliceVariation>;
+
+/**
  * Primary content in *EngineeringPillars → Default → Primary*
  */
 export interface EngineeringPillarsSliceDefaultPrimary {
@@ -261,6 +309,10 @@ declare module "@prismicio/client" {
 			AiArchitectureSliceDefaultPrimary,
 			AiArchitectureSliceVariation,
 			AiArchitectureSliceDefault,
+			ContactSlice,
+			ContactSliceDefaultPrimary,
+			ContactSliceVariation,
+			ContactSliceDefault,
 			EngineeringPillarsSlice,
 			EngineeringPillarsSliceDefaultPrimary,
 			EngineeringPillarsSliceVariation,
