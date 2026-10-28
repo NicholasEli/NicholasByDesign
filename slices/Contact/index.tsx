@@ -52,8 +52,8 @@ export default function Contact({ slice, index, slices }: ContactProps) {
                 field={slice.primary.description}
                 fallback={
                   <p>
-                    Whether deploying zero-to-one architecture, engineering complex WebGL frontends,
-                    or launching agentic AI pipelines in prod, reach out directly.
+                    Whether deploying zero-to-one architecture, engineering complex frontends, or
+                    launching agentic AI pipelines for productive solutions, reach out directly.
                   </p>
                 }
               />
@@ -61,19 +61,28 @@ export default function Contact({ slice, index, slices }: ContactProps) {
 
             <dl className="contact-section__details">
               <div className="contact-section__detail">
-                <dt>Direct Comms:</dt>
+                <dt>Email:</dt>
                 <dd className="contact-section__value contact-section__value--email">
-                  nicholas@bydesign.engineering
+                  <a
+                    title="Email nicholas@bydesign@gmail.com"
+                    href="mailto:nicholas@bydesign@gmail.com"
+                  >
+                    nicholas@bydesign@gmail.com
+                  </a>
                 </dd>
               </div>
               <div className="contact-section__detail">
-                <dt>PGP Fingerprint:</dt>
-                <dd className="contact-section__value">9E4F 821A 77CD 0B52</dd>
+                <dt>LinkedIn:</dt>
+                <dd className="contact-section__value">
+                  <a title="Nicholas Eli" href="https://www.linkedin.com/in/nicholasbydesign/">
+                    Nicholas Eli
+                  </a>
+                </dd>
               </div>
               <div className="contact-section__detail">
-                <dt>Location / Time:</dt>
+                <dt>Location</dt>
                 <dd className="contact-section__value contact-section__value--location">
-                  UTC-5 (EST) / Global Remote
+                  Vancouver, Washington
                 </dd>
               </div>
             </dl>
@@ -83,7 +92,7 @@ export default function Contact({ slice, index, slices }: ContactProps) {
                 <path d="M2 4h20v16H2zM6 9l3 3-3 3M12 16h5" />
               </svg>
               <p>
-                Direct advisory engagements, architecture audits &amp; hands-on lead sprints
+                Direct advisory engagements, architecture audits, ui/ux design &amp; e-commerce
                 accepted.
               </p>
             </div>
@@ -133,7 +142,7 @@ export default function Contact({ slice, index, slices }: ContactProps) {
 
               <div className="contact-section__field">
                 <label className="contact-section__label" htmlFor={`${control_id}-scope`}>
-                  ARCHITECTURE SCOPE
+                  SCOPE
                 </label>
                 <div className="contact-section__select-wrap">
                   <select
@@ -142,10 +151,11 @@ export default function Contact({ slice, index, slices }: ContactProps) {
                     name="scope"
                     defaultValue="frontend"
                   >
-                    <option value="frontend">Frontend &amp; Spatial Systems Architecture</option>
-                    <option value="fullstack">Full-Stack Systems Architecture</option>
+                    <option value="frontend">Frontend UI/UX</option>
+                    <option value="frontend">Mobile Development</option>
+                    <option value="fullstack">SaaS Integration</option>
                     <option value="ai">Agentic AI Pipelines</option>
-                    <option value="advisory">Architecture Audits &amp; Advisory</option>
+                    <option value="advisory">General Inquery</option>
                   </select>
                   <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
                     <path d="m5 7 5 5 5-5" />
@@ -155,7 +165,7 @@ export default function Contact({ slice, index, slices }: ContactProps) {
 
               <div className="contact-section__field">
                 <label className="contact-section__label" htmlFor={`${control_id}-details`}>
-                  TRANSMISSION DETAILS
+                  DETAILS
                 </label>
                 <textarea
                   className="contact-section__input contact-section__input--textarea"
@@ -168,10 +178,6 @@ export default function Contact({ slice, index, slices }: ContactProps) {
             </div>
 
             <div className="contact-section__actions">
-              <label className="contact-section__nda" htmlFor={`${control_id}-nda`}>
-                <input id={`${control_id}-nda`} type="checkbox" name="nda" defaultChecked />
-                <span>Standard mutual NDA requested</span>
-              </label>
               <button
                 className="contact-section__send"
                 type="button"

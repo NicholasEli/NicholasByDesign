@@ -12,40 +12,41 @@ export type AiArchitectureProps = SliceComponentProps<Content.AiArchitectureSlic
 const architecture_stages = [
   {
     theme: 'intake',
-    label: '01 // CLIENT INTAKE',
-    title: 'Adaptive UI Layer',
+    label: '01 // CREATIVE',
+    title: 'UI/UX Development',
     description:
-      'Real-time telemetry captures spatial intent vectors, contextual embeddings, and viewport postures directly in client state.',
+      'Design and interaction that goes from idea, wireframe, prototype and finally implementation. Each step along the way is carefully considered to drive the best results from your users.',
     icon_path:
       'M10 11V4a2 2 0 0 1 4 0v9l2-1h4v7a3 3 0 0 1-3 3h-4l-5-7a2 2 0 0 1 2-3l2 2M7 7V4a5 5 0 0 1 10 0',
-    footer: 'client → tokenize() → stream',
+    footer: 'design → develop → deploy',
     metrics: null
   },
   {
     theme: 'core',
-    label: '02 // INFERENCE CORE',
-    title: 'Agentic Orchestration',
+    label: '02 // DEVELOPMENT',
+    title: 'Service Integration',
     description:
-      'RAG pipelines execute vector queries across Qdrant/Pinecone with speculative decoding and semantic memory caching.',
+      'Extending your current platforms functionality with the market of services can save you time, management and most importantly cost.',
     icon_path: 'M7 22v-6a9 9 0 1 1 15-7l1 5h-4v5h-4v3M11 8l1-2h3l1 2 2 1v2l-2 1-1 2h-3l-1-2-2-1V9z',
-    footer: null,
-    metrics: [
-      { label: 'Speed:', value: '84 tps', theme: 'speed' },
-      { label: 'Quant:', value: '4-bit FP16', theme: 'quant' }
-    ]
+    footer: 'platform → handshake ← integration'
+    // metrics: [
+    //   { label: 'Speed:', value: '84 tps', theme: 'speed' },
+    //   { label: 'Quant:', value: '4-bit FP16', theme: 'quant' }
+    // ]
   },
   {
     theme: 'dispatch',
-    label: '03 // DISPATCH',
-    title: 'Deterministic Action',
+    label: '03 // PROCESS IMPROVEMENT',
+    title: 'Process Automation',
     description:
-      'Human-in-the-loop validation, verified schema rollouts, and idempotent writes to system databases.',
+      'Ai is best when you have curated tools to help you augment your teams capability, freeing them up to handle more important day to day tasks.',
     icon_path: 'M5 7h14v13H5zM12 7V3M10 3h4M1 11h4M19 11h4M8 12h1M15 12h1M9 16h6',
-    footer: 'verify() → commitTransaction()',
+    footer: 'crawl → walk → run',
     metrics: null
   }
 ];
 
+/*
 const architecture_features = [
   {
     theme: 'intake',
@@ -69,6 +70,7 @@ const architecture_features = [
     icon_path: 'm12 2 3 2 4-1 1 4 3 3-2 3 1 4-4 1-3 3-3-2-4 1-1-4-3-3 2-3-1-4 4-1zM8 12l3 3 5-6'
   }
 ];
+*/
 
 /**
  * Render the editable section introduction, ordered system flow, and supporting capabilities.
@@ -95,7 +97,7 @@ export default function AiArchitecture({ slice }: AiArchitectureProps) {
           <div className="section-shell__heading ai-architecture__heading" id={heading_id}>
             <PrismicRichText
               field={slice.primary.heading}
-              fallback={<h2>AI-Augmented Systems Architecture</h2>}
+              fallback={<h2>AI-Augmented Architecture</h2>}
             />
           </div>
           <div className="section-shell__description ai-architecture__description">
@@ -103,9 +105,9 @@ export default function AiArchitecture({ slice }: AiArchitectureProps) {
               field={slice.primary.description}
               fallback={
                 <p>
-                  Frontend interfaces, design systems, and full-stack runtimes don&apos;t operate in
-                  static silos. In my work, they converge into an active feedback loop powered by
-                  agentic intelligence and low-latency inference.
+                  Meaningful interfaces, build systems, and automated workflows don&apos;t operate
+                  in static silos. In my work, they converge into an active feedback loop powered by
+                  agentic intelligence and over a decade of experience.
                 </p>
               }
             />
@@ -164,9 +166,8 @@ export default function AiArchitecture({ slice }: AiArchitectureProps) {
           )}
         </ol>
 
-        <div className="ai-architecture__features">
+        {/*<div className="ai-architecture__features">
           {architecture_features.map(
-            /** Render a noninteractive architecture capability card. */
             function render_feature(feature) {
               return (
                 <article
@@ -190,7 +191,7 @@ export default function AiArchitecture({ slice }: AiArchitectureProps) {
               );
             }
           )}
-        </div>
+        </div>*/}
       </div>
     </section>
   );

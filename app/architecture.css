@@ -57,7 +57,6 @@
   flex-direction: column;
   gap: clamp(1.25rem, 2vw, 2.25rem);
   isolation: isolate;
-  margin: 0 0 clamp(2.5rem, 4vw, 4.5rem);
   padding: clamp(1.25rem, 2.7vw, 3rem);
   list-style: none;
   background-color: var(--color-section-panel);
@@ -218,6 +217,7 @@
 
   .ai-architecture__flow,
   .ai-architecture__features {
+    margin: 0;
     flex-direction: row;
     align-items: stretch;
   }
