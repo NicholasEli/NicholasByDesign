@@ -8,6 +8,9 @@
           "choices": {
             "engineering_pillars": {
               "type": "SharedSlice"
+            },
+            "ai_architecture": {
+              "type": "SharedSlice"
             }
           }
         },

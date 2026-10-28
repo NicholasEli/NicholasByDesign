@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomePageDocumentDataSlicesSlice = EngineeringPillarsSlice
+type HomePageDocumentDataSlicesSlice = EngineeringPillarsSlice | AiArchitectureSlice
 
 /**
  * Content for Home Page documents
@@ -118,6 +118,54 @@ interface HomePageDocumentData {
 export type HomePageDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<HomePageDocumentData>, "home_page", Lang>;
 
 export type AllDocumentTypes = HomePageDocument;
+
+/**
+ * Primary content in *AiArchitecture → Default → Primary*
+ */
+export interface AiArchitectureSliceDefaultPrimary {
+	/**
+	 * Heading field in *AiArchitecture → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ai_architecture.default.primary.heading
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	heading: prismic.RichTextField;
+	
+	/**
+	 * Description field in *AiArchitecture → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: ai_architecture.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for AiArchitecture Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AiArchitectureSliceDefault = prismic.SharedSliceVariation<"default", Simplify<AiArchitectureSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *AiArchitecture*
+ */
+type AiArchitectureSliceVariation = AiArchitectureSliceDefault
+
+/**
+ * AiArchitecture Shared Slice
+ *
+ * - **API ID**: `ai_architecture`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AiArchitectureSlice = prismic.SharedSlice<"ai_architecture", AiArchitectureSliceVariation>;
 
 /**
  * Primary content in *EngineeringPillars → Default → Primary*
@@ -209,6 +257,10 @@ declare module "@prismicio/client" {
 			HomePageDocumentData,
 			HomePageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			AiArchitectureSlice,
+			AiArchitectureSliceDefaultPrimary,
+			AiArchitectureSliceVariation,
+			AiArchitectureSliceDefault,
 			EngineeringPillarsSlice,
 			EngineeringPillarsSliceDefaultPrimary,
 			EngineeringPillarsSliceVariation,
