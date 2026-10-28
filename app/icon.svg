@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>NicholasByDesign</title>
+  <rect x="1" y="1" width="62" height="62" rx="17" fill="#171c28" stroke="#2c3248" stroke-width="2" />
+  <defs>
+    <path id="n" d="M18 46V18h7l14 19V18h7v28h-7L25 27v19Z" />
+  </defs>
+  <use href="#n" transform="translate(-2 0)" fill="#00f5d4" />
+  <use href="#n" transform="translate(2 1)" fill="#ff008c" />
+  <use href="#n" fill="#fff" />
+</svg>

@@ -9,6 +9,8 @@ import { Inter, JetBrains_Mono, La_Belle_Aurore, Plus_Jakarta_Sans } from 'next/
 
 import SiteNavigation from '../components/SiteNavigation';
 
+import { site } from '../data/site';
+
 import { repository_name } from '../prismicio';
 
 import './styles.css';
@@ -45,7 +47,18 @@ const handwritten_font = La_Belle_Aurore({
 });
 
 export const metadata: Metadata = {
-  title: 'NicholasByDesign'
+  metadataBase: site.url,
+  applicationName: site.name,
+  title: {
+    default: site.title,
+    template: `%s | ${site.name}`
+  },
+  description: site.description,
+  keywords: site.keywords,
+  authors: [{ name: site.author, url: site.url.href }],
+  creator: site.author,
+  publisher: site.name,
+  robots: { index: true, follow: true }
 };
 
 /**

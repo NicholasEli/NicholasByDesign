@@ -3,8 +3,14 @@
  */
 import { SliceSimulator, getSlices, type SliceSimulatorParams } from '@prismicio/next';
 import { SliceZone } from '@prismicio/react';
+import type { Metadata } from 'next';
 
 import { components } from '../../slices';
+
+export const metadata: Metadata = {
+  title: 'Slice Preview',
+  robots: { index: false, follow: false }
+};
 
 /**
  * Decode the simulator state and render the matching local slice components.

@@ -162,6 +162,40 @@ For a private Content API, copy `.env.example` to `.env.local` and set
 `PRISMIC_ACCESS_TOKEN`. In Netlify, set it with both Builds and Functions scopes.
 The token remains on the server; public published content needs no token.
 
+## Search metadata and social previews
+
+`data/site.js` holds the public identity, default title and description, keywords,
+social profiles, and canonical origin: **https://nicholasbydesign.com**.
+`NEXT_PUBLIC_SITE_URL` can override the origin; use the production domain in all
+deployment contexts so previews do not become canonical URLs.
+
+On **Home Page → SEO & Metadata**, edit **Meta Title** and **Meta Description**
+and publish. Empty or whitespace-only fields use the defaults in `data/site.js`.
+`app/page.tsx` renders the title, description, canonical link, Open Graph tags,
+and Twitter large-image card on the server. Metadata and page rendering share
+one Prismic document read within the request; published content remains uncached
+between requests.
+
+Social previews use the supplied `public/nicholasbydesign-preview.jpg`
+(1000 × 578), with descriptive alt text. Replace this local file to change the
+preview; Prismic's existing Meta Image field is not used for this fixed image.
+`app/icon.svg` recreates the navigation's white N with cyan/magenta offsets.
+`app/favicon.ico` contains 16px, 32px, and 48px versions, and
+`app/apple-icon.png` supplies the 180px Apple touch icon. Keep these raster
+versions in sync when changing the SVG.
+
+The homepage includes safely serialized JSON-LD for **Person**, **WebSite**, and
+**ProfilePage**, using the displayed name, role, contact details, location, social
+profiles, and actual Prismic publication date. This follows Google's
+[profile-page structured data guidance](https://developers.google.com/search/docs/appearance/structured-data/profile-page).
+After deployment, check the public URL with Google's
+[Rich Results Test](https://search.google.com/test/rich-results).
+
+`/sitemap.xml` lists the canonical homepage. `/robots.txt` points to the sitemap
+and excludes API endpoints from crawling. The slice simulator and Prismic draft
+previews set `noindex, nofollow`. Keywords are included as requested; Google
+[does not use the keywords meta tag for indexing or ranking](https://developers.google.com/search/docs/crawling-indexing/special-tags).
+
 ## Fixed homepage hero
 
 `components/HomeHero.tsx` renders the homepage introduction before the Slice Zone.
