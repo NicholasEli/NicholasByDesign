@@ -179,7 +179,8 @@ rotation, rewiring, transitions, and smooth scrolling. The wireframe rotation lo
 takes about 7.11 seconds and connection fades take 400ms, running another 50% faster
 than the previous timings (2.25 times the original speed).
 
-The contact button is a native `#contact` link. Once a section with `id="contact"`
+The contact button has a subtle cyan shadow that orbits on hover or keyboard focus;
+reduced motion uses a static glow. It is a native `#contact` link. Once a section with `id="contact"`
 is added, it will scroll smoothly into view. No placeholder contact section is
 included. Styles use mobile-first base declarations. At `min-width: 481px`,
 tablet typography and spacing are applied; at `min-width: 1024px`, the hero

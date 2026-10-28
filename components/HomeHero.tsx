@@ -74,6 +74,12 @@ export default function HomeHero({ description }: HomeHeroProps) {
               />
             </div>
 
+            <div className="home-hero__action">
+              <a className="home-hero__contact" href="#contact">
+                INTEGRATE ME
+              </a>
+            </div>
+
             <p className="home-hero__availability">
               <span className="home-hero__status-dot" aria-hidden="true" />
               <span>Ready for Q{current_quarter} Direct Engagements</span>
