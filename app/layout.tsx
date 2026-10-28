@@ -7,6 +7,8 @@ import { PrismicPreview } from '@prismicio/next';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, La_Belle_Aurore, Plus_Jakarta_Sans } from 'next/font/google';
 
+import SiteNavigation from '../components/SiteNavigation';
+
 import { repository_name } from '../prismicio';
 
 import './styles.css';
@@ -15,6 +17,7 @@ import './pillars.css';
 import './architecture.css';
 import './contact.css';
 import './footer.css';
+import './navigation.css';
 
 const headline_font = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -57,7 +60,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${headline_font.variable} ${body_font.variable} ${label_font.variable} ${handwritten_font.variable}`}
     >
       <body>
-        {children}
+        <SiteNavigation />
+        <div className="site-layout__content">{children}</div>
         <PrismicPreview repositoryName={repository_name} />
       </body>
     </html>

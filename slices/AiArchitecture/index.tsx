@@ -9,7 +9,17 @@ import type { SliceComponentProps } from '@prismicio/react';
 
 export type AiArchitectureProps = SliceComponentProps<Content.AiArchitectureSlice>;
 
-const architecture_stages = [
+type ArchitectureStage = {
+  theme: string;
+  label: string;
+  title: string;
+  description: string;
+  icon_path: string;
+  footer: string;
+  metrics?: { label: string; value: string; theme: string }[] | null;
+};
+
+const architecture_stages: ArchitectureStage[] = [
   {
     theme: 'intake',
     label: '01 // CREATIVE',

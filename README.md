@@ -85,7 +85,7 @@ npm start
 Next.js uses this directory to decide which code runs for each URL.
 
 - `app/page.tsx`: Handles `/`, fetches content from Prismic, and passes it to the HomePage component.
-- `app/layout.tsx`: Provides the shared HTML document, metadata, and Prismic preview toolbar.
+- `app/layout.tsx`: Provides the shared HTML document, global navigation rail, metadata, and Prismic preview toolbar.
 - `app/home-page/page.tsx`: Redirects `/home-page` to `/`.
 - `app/slice-simulator/page.tsx`: Renders slices in isolation for Prismic's live previews.
 - `app/api/`: Contains server endpoints for entering/exiting previews and revalidating cached content.
@@ -256,6 +256,22 @@ and mobile/desktop sizes. `.section-shell__eyebrow` is shared with Engineering
 Pillars, and `.section-shell__panel` shares static panel grain with AI Architecture.
 Contact layout styles live in `app/contact.css`. The layout stacks below 1024px;
 the name/email fields sit side by side from 768px.
+
+## Global navigation
+
+`components/SiteNavigation.tsx` renders a fixed left rail from the root layout,
+shared by public pages. It contains the static neon N mark, five main section
+controls, and three utility controls. Home is highlighted as the reference's
+default visual state. All controls have accessible names and keyboard focus
+styles; destinations, scrolling, and other button actions are not connected yet.
+
+`app/navigation.css` reserves 56px beside the content on small screens and 96px
+from `min-width: 1024px`. The compact version hides the brand caption. The rail
+scrolls independently on short screens so every control remains reachable.
+Page typography continues to use the existing shared styles.
+
+The isolated `/slice-simulator` route omits the rail and its content offset so
+editor previews keep their full canvas width. API handlers are unaffected.
 
 ## Footer
 
