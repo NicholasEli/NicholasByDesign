@@ -16,6 +16,14 @@ type HomeHeroProps = { description?: RichTextField | null };
  * @returns The fixed homepage hero section.
  */
 export default function HomeHero({ description }: HomeHeroProps) {
+  const current_month = Number(
+    new Intl.DateTimeFormat('en-US', {
+      month: 'numeric',
+      timeZone: 'America/Los_Angeles'
+    }).format(new Date())
+  );
+  const current_quarter = Math.ceil(current_month / 3);
+
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
       <div className="home-hero__frame">
@@ -80,7 +88,7 @@ export default function HomeHero({ description }: HomeHeroProps) {
 
             <p className="home-hero__availability">
               <span className="home-hero__status-dot" aria-hidden="true" />
-              <span>Ready for Q2 Direct Engagements</span>
+              <span>Ready for Q{current_quarter} Direct Engagements</span>
             </p>
           </div>
 

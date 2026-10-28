@@ -41,6 +41,8 @@
 
 .home-hero__content {
   min-width: 0;
+  position: relative;
+  z-index: 2;
   flex: 0 1 60%;
   display: flex;
   flex-direction: column;
@@ -194,7 +196,7 @@
 }
 
 .home-hero__art {
-  min-width: 0;
+  width: 100%;
   flex: 1 1 40%;
 }
 
@@ -207,7 +209,7 @@
 
 .home-hero__geometry {
   transform-origin: center;
-  animation: hero-float 16s ease-in-out infinite;
+  animation: hero-float 10.6667s ease-in-out infinite;
 }
 
 .home-hero__edges {
@@ -218,7 +220,7 @@
 
 .home-hero__connection {
   opacity: 0;
-  transition: opacity 900ms ease;
+  transition: opacity 600ms ease;
 }
 
 .home-hero__connection--active {
@@ -249,7 +251,9 @@
   }
 
   .home-hero__art {
-    width: min(75%, 28rem);
+    width: 85%;
+    position: absolute;
+    z-index: 1;
     flex: none;
     align-self: center;
   }

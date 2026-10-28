@@ -96,7 +96,7 @@ export default function HeroWireframe() {
         setActiveConnections(get_connections({ randomize: false }));
         return;
       }
-      connection_timer = setInterval(refresh_connections, 2200);
+      connection_timer = setInterval(refresh_connections, 2200 / 1.5);
     }
 
     sync_motion();

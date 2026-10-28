@@ -163,17 +163,21 @@ It is fixed to the singleton Home Page and is not a reorderable slice. The exist
 To change the paragraph, open the Home Page document in Prismic, edit **Hero
 description** (`hero_description`), and publish. This field accepts one paragraph.
 An empty field displays the mockup's “Bridging the chasm…” copy. The greeting,
-role labels, “INTEGRATE ME” button, and “Ready for Q2 Direct Engagements” status
-are maintained in React.
+role labels and “INTEGRATE ME” button are maintained in React. The availability
+line calculates the current quarter using `Math.ceil(current_month / 3)`, with
+the month evaluated in `America/Los_Angeles`, and displays “Ready for Q4 Direct
+Engagements”, for example. It updates on the next page request after a quarter changes.
 
 The title uses Plus Jakarta Sans, supporting copy uses Inter, labels use
 JetBrains Mono, and decorative HTML tags use La Belle Aurore. `app/hero.css`
 contains the responsive layout and hero-scoped neon colors; other pages retain
 the global palette. The SVG network keeps its slow floating rotation without any
 filled faces. Each point stays linked to its nearest neighbor while a second
-connection randomly switches between the next two closest points every 2.2 seconds,
+connection randomly switches between the next two closest points about every 1.47 seconds,
 with fading lines. The name's cyan/magenta offsets stay static. Reduced-motion preferences stop
-rotation, rewiring, transitions, and smooth scrolling.
+rotation, rewiring, transitions, and smooth scrolling. The wireframe rotation loop
+takes about 10.67 seconds and connection fades take 600ms, running 50% faster
+than the original timings.
 
 The contact button is a native `#contact` link. Once a section with `id="contact"`
 is added, it will scroll smoothly into view. No placeholder contact section is
