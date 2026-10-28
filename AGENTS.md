@@ -36,6 +36,7 @@ Use type-only imports for TypeScript types. Preserve directive placement such as
 ## CSS / Styling
 
 - Use BEM (`block__element--modifier`) class names.
+- Reuse the shared section heading/body styles and body typography tokens for new sections. Treat current user-adjusted typography as the source of truth; do not introduce separate title/body font scales unless requested.
 - Write mobile-first CSS: put the smallest-screen layout in base declarations and add larger-screen enhancements with ascending `@media (min-width: ...)` breakpoints.
 - Reserve `max-width` media queries for a specific bounded or small-screen-only exception, and document why a mobile-first override cannot express it cleanly.
 - `max-width` sizing properties remain appropriate for content containers, readable line lengths, and responsive media; this breakpoint preference does not prohibit those size constraints.

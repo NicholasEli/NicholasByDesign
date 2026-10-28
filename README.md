@@ -126,6 +126,7 @@ reorder these sections in Prismic's Page Builder.
 - `slices/IntroHero/index.tsx`: The generated scaffold for that model; it is separate from the fixed hero.
 - `slices/EngineeringPillars/index.tsx`: The reorderable engineering disciplines section, with an editable heading and introduction and fixed skill cards.
 - `slices/AiArchitecture/index.tsx`: The reorderable AI convergence architecture section, with an editable heading and introduction and fixed flow/capability cards.
+- `slices/Contact/index.tsx`: The contact section with editable introductory copy, fixed contact details, and an unconnected dispatch panel.
 - `slices/Editorial/index.tsx`: The preserved Editorial implementation, currently unregistered because its model no longer exists in Prismic.
 - `slices/index.ts`: A generated mapping from slice API IDs to React components, consumed by `SliceZone`.
 
@@ -182,9 +183,9 @@ takes about 7.11 seconds and connection fades take 400ms, running another 50% fa
 than the previous timings (2.25 times the original speed).
 
 The contact button has a subtle cyan shadow that orbits on hover or keyboard focus;
-reduced motion uses a static glow. It is a native `#contact` link. Once a section with `id="contact"`
-is added, it will scroll smoothly into view. No placeholder contact section is
-included. Styles use mobile-first base declarations. At `min-width: 481px`,
+reduced motion uses a static glow. Its native `#contact` link scrolls smoothly to
+the first Contact slice when present, with automatic scrolling for reduced motion.
+Styles use mobile-first base declarations. At `min-width: 481px`,
 tablet typography and spacing are applied; at `min-width: 1024px`, the hero
 switches to the desktop two-column layout. On smaller screens the wireframe
 sits behind the text as a decorative layer.
@@ -225,6 +226,29 @@ The slice uses the shared section container, tag, heading, description, fonts,
 neon accents, panel/card colors, and border tokens in `app/styles.css`.
 `.section-shell__heading` and `.section-shell__description` are also used by
 Engineering Pillars. Architecture-specific styles live in `app/architecture.css`.
+
+## Contact section
+
+The **Contact** slice (`contact`) follows AI Architecture on Home Page. Only
+**Heading** (one H2) and **Description** (one paragraph) are editable. Empty fields
+use the mockup's “Let's Integrate.” title and introductory paragraph. The first
+Contact instance gets `id="contact"`, even when reordered, so the hero button
+scrolls to it. Additional instances get unique IDs.
+
+The contact details, fingerprint, location/time, advisory note, encryption label,
+field labels, and scope choices are fixed mockup copy. The panel is presentational:
+name, email, scope, details, and NDA controls can be edited locally, but the Send
+Transmission button is disabled. There is no form submission, request, email
+integration, storage, or custom encryption functionality.
+
+Contact uses the existing `.section-shell__heading` and
+`.section-shell__description` styles without its own heading/body scale. Form
+controls reuse `--font-size-section-body`, `--font-weight-section-body`, and
+`--line-height-section-body`, preserving the current Inter 300 / 1.55 treatment
+and mobile/desktop sizes. `.section-shell__eyebrow` is shared with Engineering
+Pillars, and `.section-shell__panel` shares static panel grain with AI Architecture.
+Contact layout styles live in `app/contact.css`. The layout stacks below 1024px;
+the name/email fields sit side by side from 768px.
 
 ## Prismic commands and content fetching
 

@@ -77,7 +77,9 @@ export default function EngineeringPillars({ slice, index }: EngineeringPillarsP
 
         <header className="engineering-pillars__header">
           <div className="engineering-pillars__introduction">
-            <p className="engineering-pillars__eyebrow">ENGINEERING MASTERY</p>
+            <p className="section-shell__eyebrow engineering-pillars__eyebrow">
+              ENGINEERING MASTERY
+            </p>
             <div className="section-shell__heading engineering-pillars__heading" id={heading_id}>
               <PrismicRichText
                 field={slice.primary.heading}

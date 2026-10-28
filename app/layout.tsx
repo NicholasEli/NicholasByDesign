@@ -13,6 +13,7 @@ import './styles.css';
 import './hero.css';
 import './pillars.css';
 import './architecture.css';
+import './contact.css';
 
 const headline_font = Plus_Jakarta_Sans({
   subsets: ['latin'],

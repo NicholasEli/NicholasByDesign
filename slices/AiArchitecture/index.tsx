@@ -112,7 +112,7 @@ export default function AiArchitecture({ slice }: AiArchitectureProps) {
           </div>
         </header>
 
-        <ol className="ai-architecture__flow" role="list">
+        <ol className="section-shell__panel ai-architecture__flow" role="list">
           {architecture_stages.map(
             /** Render a fixed stage in the intake, inference, and dispatch sequence. */
             function render_stage(stage) {

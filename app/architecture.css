@@ -68,18 +68,6 @@
     0 0 25px #e0e2ef10;
 }
 
-/* Static grain softens the panel's shadow without an animation or image dependency. */
-.ai-architecture__flow::before {
-  position: absolute;
-  inset: 0 -1rem -3rem;
-  z-index: -1;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23grain)' opacity='.5' d='M0 0h160v160H0z'/%3E%3C/svg%3E");
-  mask-image: linear-gradient(#0006, #000, transparent);
-  opacity: 0.12;
-  content: '';
-}
-
 .ai-architecture__stage,
 .ai-architecture__feature {
   --architecture-accent: var(--color-neon-cyan);

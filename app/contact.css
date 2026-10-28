@@ -1,0 +1,280 @@
+/**
+ * Presentational contact section using the shared heading and body typography.
+ */
+.contact-section {
+  padding-block: clamp(2rem, 3vw, 3.5rem) clamp(4rem, 8vw, 9rem);
+  background-color: #000;
+}
+
+.contact-section__tag {
+  margin: 0 0 clamp(2rem, 3.8vw, 4rem) -0.5rem;
+}
+
+.contact-section__layout {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 4.5rem);
+}
+
+.contact-section__introduction {
+  min-width: 0;
+  flex: 0 1 40%;
+}
+
+.contact-section__description {
+  margin-bottom: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+.contact-section__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 0 2rem;
+  font-family: var(--font-label);
+  font-size: clamp(0.75rem, 1.05vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.contact-section__detail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 1rem 1.125rem;
+  background-color: var(--color-section-card);
+  border: 1px solid var(--color-section-border);
+  border-radius: 0.3rem;
+}
+
+.contact-section__detail dt {
+  color: var(--color-section-tag);
+}
+
+.contact-section__value {
+  min-width: 0;
+  margin: 0;
+  color: var(--color-text-heading);
+  overflow-wrap: anywhere;
+}
+
+.contact-section__value--email {
+  color: var(--color-neon-cyan);
+}
+
+.contact-section__value--location {
+  color: var(--color-neon-magenta);
+}
+
+.contact-section__advisory {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  font-family: var(--font-label);
+  font-size: clamp(0.75rem, 1.05vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--color-section-muted);
+  background-color: var(--color-section-panel);
+  border: 1px solid var(--color-section-border);
+  border-radius: 0.75rem;
+}
+
+.contact-section__advisory svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  stroke: var(--color-neon-cyan);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.contact-section__advisory p {
+  margin: 0;
+}
+
+.contact-section__panel {
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex: 1 1 58%;
+  flex-direction: column;
+  gap: clamp(1.5rem, 2.2vw, 2.75rem);
+  isolation: isolate;
+  padding: clamp(1.5rem, 2.7vw, 3rem);
+  background-color: var(--color-section-panel);
+  border: 1px solid var(--color-section-border);
+  border-radius: 1rem;
+  box-shadow:
+    0 24px 35px -12px #000,
+    0 0 25px #e0e2ef10;
+}
+
+.contact-section__panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-section-border);
+}
+
+.contact-section__terminal-title {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: clamp(0.75rem, 1.05vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.08em;
+  color: var(--color-neon-cyan);
+}
+
+.contact-section__encryption {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: clamp(0.625rem, 0.85vw, 1rem);
+  line-height: 1.55;
+  color: var(--color-section-tag);
+}
+
+.contact-section__fields {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 1.8vw, 2rem);
+}
+
+.contact-section__identity {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 1.8vw, 2rem);
+}
+
+.contact-section__field {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-section__label {
+  font-family: var(--font-label);
+  font-size: clamp(0.75rem, 1.05vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-section-tag);
+}
+
+.contact-section__input {
+  width: 100%;
+  min-width: 0;
+  display: block;
+  padding: 0.875rem 1.125rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-section-body);
+  font-weight: var(--font-weight-section-body);
+  line-height: var(--line-height-section-body);
+  color: var(--color-text-heading);
+  background-color: var(--color-section-card);
+  border: 1px solid var(--color-section-border);
+  border-radius: 0.3rem;
+}
+
+.contact-section__input::placeholder {
+  color: #787d8b;
+  opacity: 1;
+}
+
+.contact-section__select-wrap {
+  position: relative;
+}
+
+.contact-section__input--select {
+  padding-right: 2.75rem;
+  appearance: none;
+}
+
+.contact-section__select-wrap svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  stroke: #787d8b;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-section__input--textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.contact-section__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.contact-section__nda {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-section-body);
+  font-weight: var(--font-weight-section-body);
+  line-height: var(--line-height-section-body);
+  color: var(--color-section-muted);
+  cursor: pointer;
+}
+
+.contact-section__nda input {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--color-neon-cyan);
+  cursor: pointer;
+}
+
+.contact-section__send {
+  padding: 0.875rem 1.5rem;
+  font-family: var(--font-label);
+  font-size: clamp(0.75rem, 1.05vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.12em;
+  color: var(--color-neon-cyan);
+  background-color: transparent;
+  border: 2px solid currentColor;
+  box-shadow: 0 0 20px #00f5d420;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .contact-section__identity {
+    flex-direction: row;
+  }
+
+  .contact-section__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-section__layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
