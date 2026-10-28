@@ -175,13 +175,13 @@ Engagements”, for example. It updates on the next page request after a quarter
 The title uses Plus Jakarta Sans, supporting copy uses Inter, labels use
 JetBrains Mono, and decorative HTML tags use La Belle Aurore. `app/hero.css`
 contains the responsive layout and hero-scoped neon colors; other pages retain
-the global palette. The SVG network keeps its slow floating rotation without any
-filled faces. Each point stays linked to its nearest neighbor while a second
-connection randomly switches between the next two closest points about every 0.98 seconds,
-with fading lines. The name's cyan/magenta offsets stay static. Reduced-motion preferences stop
-rotation, rewiring, transitions, and smooth scrolling. The wireframe rotation loop
-takes about 7.11 seconds and connection fades take 400ms, running another 50% faster
-than the previous timings (2.25 times the original speed).
+the global palette. The SVG network forms an extruded **N** without filled letter
+faces. A permanent outline, lattice rails, and crossbars keep it recognizable;
+local cell diagonals randomly reconnect about every 0.98 seconds with fading
+lines. Cyan, violet, and magenta outline accents and colored nodes add depth.
+The existing floating rotation loop takes about 7.11 seconds and connection
+fades take 400ms. The name's cyan/magenta offsets stay static. Reduced-motion
+preferences stop rotation, rewiring, transitions, and smooth scrolling.
 
 The contact button has a subtle cyan shadow that orbits on hover or keyboard focus;
 reduced motion uses a static glow. Its native `#contact` link scrolls smoothly to

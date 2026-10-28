@@ -104,7 +104,7 @@
 }
 
 .home-hero__role--systems {
-  color: #d0b4f8;
+  color: var(--color-neon-violet);
 }
 
 .home-hero__separator {
@@ -211,9 +211,32 @@
 }
 
 .home-hero__edges {
-  stroke: #30374f;
-  stroke-width: 1.4;
+  stroke: #465476;
+  stroke-width: 1.2;
   stroke-linejoin: round;
+  opacity: 0.65;
+}
+
+.home-hero__depth {
+  stroke: var(--color-neon-violet);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+  opacity: 0.35;
+}
+
+.home-hero__outline {
+  stroke-width: 2;
+  stroke-linejoin: round;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 5px #00f5d42b);
+}
+
+.home-hero__signals {
+  stroke-width: 1.35;
+}
+
+.home-hero__vertices {
+  filter: drop-shadow(0 0 3px #00f5d44a);
 }
 
 .home-hero__connection {

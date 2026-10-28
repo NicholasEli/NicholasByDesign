@@ -50,17 +50,15 @@ export default function HomeHero({ description }: HomeHeroProps) {
             </div>
 
             <p className="home-hero__roles">
-              <span className="home-hero__role home-hero__role--engineering">
-                Forward Deploy Engineer
-              </span>
+              <span className="home-hero__role home-hero__role--engineering">Creative</span>
               <span className="home-hero__separator" aria-hidden="true">
                 //
               </span>
-              <span className="home-hero__role home-hero__role--design">Devsigner</span>
+              <span className="home-hero__role home-hero__role--design">Development</span>
               <span className="home-hero__separator" aria-hidden="true">
                 //
               </span>
-              <span className="home-hero__role home-hero__role--systems">Systems Architect</span>
+              <span className="home-hero__role home-hero__role--systems">Process Improvement</span>
             </p>
 
             <div className="home-hero__description">
