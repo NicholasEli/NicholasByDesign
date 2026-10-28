@@ -5,11 +5,12 @@ import type { ReactNode } from 'react';
 
 import { PrismicPreview } from '@prismicio/next';
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, JetBrains_Mono, La_Belle_Aurore, Plus_Jakarta_Sans } from 'next/font/google';
 
 import { repository_name } from '../prismicio';
 
 import './styles.css';
+import './hero.css';
 
 const headline_font = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -29,6 +30,13 @@ const label_font = JetBrains_Mono({
   variable: '--font-jetbrains-mono'
 });
 
+const handwritten_font = La_Belle_Aurore({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-la-belle-aurore'
+});
+
 export const metadata: Metadata = {
   title: 'NicholasByDesign'
 };
@@ -42,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${headline_font.variable} ${body_font.variable} ${label_font.variable}`}
+      className={`${headline_font.variable} ${body_font.variable} ${label_font.variable} ${handwritten_font.variable}`}
     >
       <body>
         {children}

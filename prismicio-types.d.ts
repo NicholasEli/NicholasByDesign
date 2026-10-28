@@ -46,83 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-/**
- * Content for Editorial documents
- */
-interface EditorialDocumentData {
-	/**
-	 * Title field in *Editorial*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: editorial.title
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	title: prismic.RichTextField;
-	
-	/**
-	 * Body field in *Editorial*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: editorial.body
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	body: prismic.RichTextField;
-	
-	/**
-	 * Image field in *Editorial*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: editorial.image
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/image
-	 */
-	image: prismic.ImageField<never>;
-}
-
-/**
- * Editorial document from Prismic
- *
- * - **API ID**: `editorial`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type EditorialDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<EditorialDocumentData>, "editorial", Lang>;
-
-/**
- * Content for Heading1 documents
- */
-interface Heading1DocumentData {
-	/**
-	 * Heading field in *Heading1*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Title
-	 * - **API ID Path**: heading1.heading
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	heading: prismic.RichTextField;
-}
-
-/**
- * Heading1 document from Prismic
- *
- * - **API ID**: `heading1`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type Heading1Document<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<Heading1DocumentData>, "heading1", Lang>;
-
-type HomePageDocumentDataSlicesSlice = EditorialSlice
+type HomePageDocumentDataSlicesSlice = never
 
 /**
  * Content for Home Page documents
@@ -140,15 +64,15 @@ interface HomePageDocumentData {
 	slices: prismic.SliceZone<HomePageDocumentDataSlicesSlice>;
 	
 	/**
-	 * Heading field in *Home Page*
+	 * Hero description field in *Home Page*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: home_page.heading
+	 * - **API ID Path**: home_page.hero_description
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
 	 */
-	heading: prismic.RichTextField;/**
+	hero_description: prismic.RichTextField;/**
 	 * Meta Title field in *Home Page*
 	 *
 	 * - **Field Type**: Text
@@ -193,65 +117,30 @@ interface HomePageDocumentData {
  */
 export type HomePageDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<HomePageDocumentData>, "home_page", Lang>;
 
-export type AllDocumentTypes = EditorialDocument | Heading1Document | HomePageDocument;
+export type AllDocumentTypes = HomePageDocument;
 
 /**
- * Primary content in *Editorial → Default → Primary*
- */
-export interface EditorialSliceDefaultPrimary {
-	/**
-	 * Heading field in *Editorial → Default → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: editorial.default.primary.heading
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	heading: prismic.RichTextField;
-	
-	/**
-	 * Body field in *Editorial → Default → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: editorial.default.primary.body
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	body: prismic.RichTextField;
-	
-	/**
-	 * Image field in *Editorial → Default → Primary*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: editorial.default.primary.image
-	 * - **Documentation**: https://prismic.io/docs/fields/image
-	 */
-	image: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for Editorial Slice
+ * Default variation for IntroHero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type EditorialSliceDefault = prismic.SharedSliceVariation<"default", Simplify<EditorialSliceDefaultPrimary>, never>;
+export type IntroHeroSliceDefault = prismic.SharedSliceVariation<"default", Record<string, never>, never>;
 
 /**
- * Slice variation for *Editorial*
+ * Slice variation for *IntroHero*
  */
-type EditorialSliceVariation = EditorialSliceDefault
+type IntroHeroSliceVariation = IntroHeroSliceDefault
 
 /**
- * Editorial Shared Slice
+ * IntroHero Shared Slice
  *
- * - **API ID**: `editorial`
- * - **Description**: *None*
+ * - **API ID**: `intro_hero`
+ * - **Description**: IntroHero
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type EditorialSlice = prismic.SharedSlice<"editorial", EditorialSliceVariation>;
+export type IntroHeroSlice = prismic.SharedSlice<"intro_hero", IntroHeroSliceVariation>;
 
 declare module "@prismicio/client" {
 	interface CreateClient {
@@ -268,18 +157,13 @@ declare module "@prismicio/client" {
 	
 	namespace Content {
 		export type {
-			EditorialDocument,
-			EditorialDocumentData,
-			Heading1Document,
-			Heading1DocumentData,
 			HomePageDocument,
 			HomePageDocumentData,
 			HomePageDocumentDataSlicesSlice,
 			AllDocumentTypes,
-			EditorialSlice,
-			EditorialSliceDefaultPrimary,
-			EditorialSliceVariation,
-			EditorialSliceDefault
+			IntroHeroSlice,
+			IntroHeroSliceVariation,
+			IntroHeroSliceDefault
 		}
 	}
 }

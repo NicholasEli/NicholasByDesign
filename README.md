@@ -14,7 +14,8 @@ can allow Hero and Editorial slices, while a Blog Post type can have author
 and publication-date fields plus article slices.
 
 In this project, **Home Page** (`home_page`) is a page type. Its model lives in
-`customtypes/home_page/index.json`, and it allows the Editorial slice.
+`customtypes/home_page/index.json`. Its hero is fixed in React, while its description
+is editable in Prismic.
 
 ### 2. Page documents — the actual pages
 
@@ -33,17 +34,16 @@ Hero slice, an Editorial slice, an Image Gallery slice, and a Call to Action sli
 The page type determines which of those sections are available.
 
 Each slice has a model describing its editable fields and a local React component
-controlling its JSX layout. Our Editorial component lives in
-`slices/Editorial/index.tsx`; `SliceZone` renders it when a page contains a slice
-with the API ID `editorial`.
+controlling its JSX layout. `SliceZone` maps each slice API ID to a local component.
+The fixed homepage hero is separate from this reorderable slice system.
 
 ### 4. Fields — the content inside pages and slices
 
 Fields hold individual values such as text, rich text, images, links, and dates.
 They can belong directly to a page or to a slice. Our Home Page has a page-level
-heading, while each Editorial slice has its own heading, body, and optional image.
+`hero_description` field. The greeting and other hero labels are fixed in React.
 
-For example, a Home Page document could contain:
+For example, a page type configured to allow Editorial slices could contain:
 
 ```text
 Home Page document (created from the Home Page type)
@@ -98,8 +98,8 @@ Add a folder with a `page.tsx` file to create another page route. For example,
 This directory contains React components used by routes or other components.
 Components define the JSX and presentation; they do not create URL routes.
 
-`components/HomePage.tsx` receives the fetched page as a prop, renders its heading,
-and uses `SliceZone` to render its ordered slices. Add shared UI such as navigation,
+`components/HomePage.tsx` receives the fetched page as a prop, renders the fixed
+`HomeHero` component, and uses `SliceZone` to render any subsequent slices. Add shared UI such as navigation,
 buttons, cards, and page layouts here.
 
 ### `customtypes/` — Prismic page and content field definitions
@@ -107,9 +107,10 @@ buttons, cards, and page layouts here.
 The folder is named `customtypes/` in lowercase. Each type has an `index.json`
 model that describes its fields and, for page types, its available slices.
 
-- `customtypes/home_page/`: The singleton Home Page type, with a heading, Slice Zone, and SEO fields.
-- `customtypes/heading1/`: The existing standalone heading type used as the homepage fallback.
-- `customtypes/editorial/`: The existing standalone Editorial content type. It is separate from the shared Editorial slice.
+- `customtypes/home_page/`: The singleton Home Page type, with the hero description, Slice Zone, and SEO fields.
+
+Local models follow the current Prismic repository. The former standalone heading
+and Editorial models were removed there and are no longer defined locally.
 
 These models describe what editors can enter. The actual heading text, body copy,
 and selected images live in documents in Prismic and are fetched through its API.
@@ -121,9 +122,9 @@ JSON files manually.
 A slice pairs a content model with a local React component. Editors select and
 reorder these sections in Prismic's Page Builder.
 
-- `slices/Editorial/model.json`: Defines the Editorial slice's heading, body, and image fields.
-- `slices/Editorial/index.tsx`: Defines the React/JSX layout that displays those fields.
-- `slices/Editorial/README.md`: Describes the slice's implementation and usage.
+- `slices/IntroHero/model.json`: The existing IntroHero model pulled from Prismic and preserved unchanged.
+- `slices/IntroHero/index.tsx`: The generated scaffold for that model; it is separate from the fixed hero.
+- `slices/Editorial/index.tsx`: The preserved Editorial implementation, currently unregistered because its model no longer exists in Prismic.
 - `slices/index.ts`: A generated mapping from slice API IDs to React components, consumed by `SliceZone`.
 
 Change the JSX to change how a slice looks. Change its model when you need new
@@ -132,8 +133,8 @@ editable fields. Push model changes to Prismic and deploy React changes to Netli
 ## Pages and Prismic content
 
 `app/page.tsx` fetches a published `home_page` document and renders
-`components/HomePage.tsx`. Until a Home Page is published, it falls back to the
-existing published `heading1` document. Other API errors are surfaced normally.
+`components/HomePage.tsx`. If no Home Page is published, the route returns a 404.
+Other API errors are surfaced normally.
 
 The shared client is configured in `prismicio.ts`, using the repository and
 document URLs in `prismic.config.json`. Add routes under `app/` and query content:
@@ -153,20 +154,30 @@ For a private Content API, copy `.env.example` to `.env.local` and set
 `PRISMIC_ACCESS_TOKEN`. In Netlify, set it with both Builds and Functions scopes.
 The token remains on the server; public published content needs no token.
 
-## Editorial slice
+## Fixed homepage hero
 
-The `editorial` shared slice is connected to the Home Page type's `slices` zone.
-It has rich text `heading` and `body` fields plus an optional `image` field.
-Edit its React layout in `slices/Editorial/index.tsx`. The page's `SliceZone`
-selects this component using the map in `slices/index.ts`.
+`components/HomeHero.tsx` renders the homepage introduction before the Slice Zone.
+It is fixed to the singleton Home Page and is not a reorderable slice. The existing
+`intro_hero` model is preserved independently and is not automatically inserted.
 
-In Prismic's Page Builder, create a **Home Page**, fill its heading, add an
-**Editorial** slice, fill its fields, and publish. It will replace the legacy
-heading at `/` automatically. Existing standalone Editorial documents are
-separate from the new shared Editorial slice and have been preserved.
+To change the paragraph, open the Home Page document in Prismic, edit **Hero
+description** (`hero_description`), and publish. This field accepts one paragraph.
+An empty field displays the mockup's “Bridging the chasm…” copy. The greeting,
+role labels, “INTEGRATE ME” button, and “Ready for Q2 Direct Engagements” status
+are maintained in React.
 
-Models are in `customtypes/` and `slices/Editorial/model.json`. Use Prismic's
-CLI or Type Builder to edit them; JSX and CSS stay in this repository.
+The title uses Plus Jakarta Sans, supporting copy uses Inter, labels use
+JetBrains Mono, and decorative HTML tags use La Belle Aurore. `app/hero.css`
+contains the responsive layout and hero-scoped neon colors; other pages retain
+the global palette. The SVG network keeps its slow floating rotation without any
+filled faces. Each point stays linked to its nearest neighbor while a second
+connection randomly switches between the next two closest points every 2.2 seconds,
+with fading lines. The name's cyan/magenta offsets stay static. Reduced-motion preferences stop
+rotation, rewiring, transitions, and smooth scrolling.
+
+The contact button is a native `#contact` link. Once a section with `id="contact"`
+is added, it will scroll smoothly into view. No placeholder contact section is
+included. Below 1024px, the artwork stacks below the content.
 
 ## Prismic commands and content fetching
 
@@ -189,8 +200,8 @@ then push them:
 
 ```sh
 npx prismic status
-git diff -- customtypes/ slices/Editorial/model.json
-git add customtypes/ slices/Editorial/model.json
+git diff -- customtypes/ slices/IntroHero/model.json
+git add customtypes/ slices/IntroHero/model.json
 git diff --cached
 git commit -m "Update Prismic content models"
 npx prismic push
@@ -233,8 +244,9 @@ const client = create_client();
 // Fetch the published singleton homepage.
 const home_page = await client.getSingle('home_page');
 
-// Fetch all published standalone Editorial documents.
-const editorial_documents = await client.getAllByType('editorial');
+// Read the editable hero paragraph and ordered slices.
+const hero_description = home_page.data.hero_description;
+const slices = home_page.data.slices;
 ```
 
 For a repeatable page type with a UID field, use
@@ -279,7 +291,7 @@ Use its CSS custom properties when styling components:
 | `--color-neutral`   | `#090D16` | Dark page background            |
 
 Headings use **Plus Jakarta Sans**, body text uses **Inter**, and labels, buttons,
-and code use **JetBrains Mono**. The `.label` class applies label typography to
+and code use **JetBrains Mono**. Decorative hero tags use **La Belle Aurore**. The `.label` class applies label typography to
 other elements. The fonts are loaded through `next/font/google`, downloaded at
 build time, and served by the application. Supporting surface/text colors and
 responsive heading sizes are also defined in the global stylesheet.
