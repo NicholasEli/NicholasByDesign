@@ -36,6 +36,9 @@ Use type-only imports for TypeScript types. Preserve directive placement such as
 ## CSS / Styling
 
 - Use BEM (`block__element--modifier`) class names.
+- Write mobile-first CSS: put the smallest-screen layout in base declarations and add larger-screen enhancements with ascending `@media (min-width: ...)` breakpoints.
+- Reserve `max-width` media queries for a specific bounded or small-screen-only exception, and document why a mobile-first override cannot express it cleanly.
+- `max-width` sizing properties remain appropriate for content containers, readable line lengths, and responsive media; this breakpoint preference does not prohibit those size constraints.
 - Use this CSS property order:
   1. `width` / `height`
   2. Positioning, including `position`, `top`, `right`, `bottom`, `left`, and `z-index`

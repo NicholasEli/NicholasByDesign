@@ -181,7 +181,10 @@ than the original timings.
 
 The contact button is a native `#contact` link. Once a section with `id="contact"`
 is added, it will scroll smoothly into view. No placeholder contact section is
-included. Below 1024px, the artwork stacks below the content.
+included. Styles use mobile-first base declarations. At `min-width: 481px`,
+tablet typography and spacing are applied; at `min-width: 1024px`, the hero
+switches to the desktop two-column layout. On smaller screens the wireframe
+sits behind the text as a decorative layer.
 
 ## Prismic commands and content fetching
 
@@ -307,6 +310,10 @@ to this Next.js project. Maintained source files use snake_case variables and
 helpers, PascalCase components and types, JSDoc, object parameters, grouped
 imports, and BEM class names. Framework signatures and external API names are
 preserved. Existing TypeScript remains in place.
+
+Responsive CSS uses mobile-first base styles and ascending `min-width` media
+queries. Use `max-width` media queries only for a documented special case.
+Container and media sizing may still use `max-width` properties.
 
 ```sh
 npm run format
