@@ -95,11 +95,6 @@ export default function HomeHero({ description }: HomeHeroProps) {
             <HeroWireframe />
           </div>
         </div>
-
-        <div className="home-hero__closing" aria-hidden="true">
-          <span className="section-shell__tag home-hero__tag">{'</body>'}</span>
-          <span className="section-shell__tag home-hero__tag">{'</html>'}</span>
-        </div>
       </div>
     </section>
   );
