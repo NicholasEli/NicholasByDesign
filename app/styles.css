@@ -28,6 +28,9 @@
   --color-neon-violet: #9855ff;
   --color-section-muted: #9ca0b9;
   --color-section-tag: #555f83;
+  --color-section-panel: #171c28;
+  --color-section-card: #101420;
+  --color-section-border: #2c3248;
   --section-max-width: 1720px;
   --section-gutter: clamp(1.5rem, 5.3vw, 6.25rem);
 
@@ -186,4 +189,34 @@ video {
   color: var(--color-section-tag);
   user-select: none;
   opacity: 0.5;
+}
+
+.section-shell__heading h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 4vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+
+.section-shell__description {
+  max-width: 66rem;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--color-section-muted);
+  overflow-wrap: anywhere;
+}
+
+.section-shell__description {
+  @media (min-width: 1024px) {
+    font-size: clamp(1rem, 1vw, 1.75rem);
+  }
+}
+
+.section-shell__description p {
+  margin: 0;
 }

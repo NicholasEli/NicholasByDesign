@@ -42,28 +42,6 @@
   content: '';
 }
 
-.engineering-pillars__heading h2 {
-  margin: 0 0 0.75rem;
-  font-size: clamp(2rem, 4vw, 4.75rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.05em;
-  color: #fff;
-  overflow-wrap: anywhere;
-}
-
-.engineering-pillars__description {
-  max-width: 66rem;
-  font-size: clamp(1rem, 1.4vw, 1.75rem);
-  line-height: 1.5;
-  color: var(--color-section-muted);
-  overflow-wrap: anywhere;
-}
-
-.engineering-pillars__description p {
-  margin: 0;
-}
-
 .engineering-pillars__status {
   margin: 0;
   font-family: var(--font-label);
@@ -85,13 +63,13 @@
   flex: 1;
   flex-direction: column;
   padding: clamp(1.5rem, 2.4vw, 2.75rem);
-  background-color: #171c28;
+  background-color: var(--color-section-panel);
   background-image: radial-gradient(
     ellipse at top right,
     color-mix(in srgb, var(--pillar-accent) 8%, transparent),
     transparent 55%
   );
-  border: 1px solid #2c3248;
+  border: 1px solid var(--color-section-border);
   border-radius: 1.125rem;
 }
 
@@ -119,8 +97,8 @@
   align-items: center;
   justify-content: center;
   color: var(--pillar-accent);
-  background-color: #101420;
-  border: 1px solid #2c3248;
+  background-color: var(--color-section-card);
+  border: 1px solid var(--color-section-border);
   border-radius: 0.75rem;
 }
 
@@ -155,9 +133,16 @@
 
 .engineering-pillars__card-description {
   margin: 0 0 2rem;
-  font-size: clamp(1rem, 1.2vw, 1.375rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.55;
   color: var(--color-section-muted);
+}
+
+.engineering-pillars__card-description {
+  @media (min-width: 1024px) {
+    font-size: clamp(1rem, 1vw, 1.75rem);
+  }
 }
 
 .engineering-pillars__features {
@@ -192,7 +177,7 @@
 .engineering-pillars__stack {
   margin-top: auto;
   padding-top: 1.5rem;
-  border-top: 1px solid #2c3248;
+  border-top: 1px solid var(--color-section-border);
 }
 
 .engineering-pillars__stack-label {
@@ -220,8 +205,8 @@
   line-height: 1.4;
   color: var(--color-text-heading);
   overflow-wrap: anywhere;
-  background-color: #101420;
-  border: 1px solid #2c3248;
+  background-color: var(--color-section-card);
+  border: 1px solid var(--color-section-border);
   border-radius: 0.25rem;
 }
 

@@ -125,6 +125,7 @@ reorder these sections in Prismic's Page Builder.
 - `slices/IntroHero/model.json`: The existing IntroHero model pulled from Prismic and preserved unchanged.
 - `slices/IntroHero/index.tsx`: The generated scaffold for that model; it is separate from the fixed hero.
 - `slices/EngineeringPillars/index.tsx`: The reorderable engineering disciplines section, with an editable heading and introduction and fixed skill cards.
+- `slices/AiArchitecture/index.tsx`: The reorderable AI convergence architecture section, with an editable heading and introduction and fixed flow/capability cards.
 - `slices/Editorial/index.tsx`: The preserved Editorial implementation, currently unregistered because its model no longer exists in Prismic.
 - `slices/index.ts`: A generated mapping from slice API IDs to React components, consumed by `SliceZone`.
 
@@ -207,6 +208,23 @@ gutters, `.section-shell__container` for centered content, and
 `.section-shell__tag` for decorative code annotations. These styles are shared by
 the hero and pillars; the global brand palette is unchanged. Pillar card styling
 lives in `app/pillars.css`, while hero-specific styling stays in `app/hero.css`.
+
+## AI convergence architecture
+
+The **AiArchitecture** slice (`ai_architecture`) follows Engineering Pillars on
+Home Page. Editors can reorder or remove it in the Slice Zone. Only **Heading**
+(one H2) and **Description** (one paragraph) are editable; empty fields use the
+mockup's “AI-Augmented Systems Architecture” title and introduction.
+
+The three ordered stages, code labels, inference metrics, icons, and three
+capability cards are fixed in React. Metrics are illustrative design copy, not
+live measurements. Both card rows stack on small screens and become three equal
+columns at `min-width: 1024px`. The panel grain and shadows are static.
+
+The slice uses the shared section container, tag, heading, description, fonts,
+neon accents, panel/card colors, and border tokens in `app/styles.css`.
+`.section-shell__heading` and `.section-shell__description` are also used by
+Engineering Pillars. Architecture-specific styles live in `app/architecture.css`.
 
 ## Prismic commands and content fetching
 

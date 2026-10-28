@@ -78,13 +78,13 @@ export default function EngineeringPillars({ slice, index }: EngineeringPillarsP
         <header className="engineering-pillars__header">
           <div className="engineering-pillars__introduction">
             <p className="engineering-pillars__eyebrow">ENGINEERING MASTERY</p>
-            <div className="engineering-pillars__heading" id={heading_id}>
+            <div className="section-shell__heading engineering-pillars__heading" id={heading_id}>
               <PrismicRichText
                 field={slice.primary.heading}
                 fallback={<h2>Multidisciplinary Pillars</h2>}
               />
             </div>
-            <div className="engineering-pillars__description">
+            <div className="section-shell__description engineering-pillars__description">
               <PrismicRichText
                 field={slice.primary.description}
                 fallback={
